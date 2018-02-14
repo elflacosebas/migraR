@@ -1,0 +1,20 @@
+{
+    "collab_server" : "",
+    "contents" : "Package: migraR\nType: Package\nTitle: Useful tool for migratuion analytics\nVersion: 0.1.0\nAuthor: Sebastian Ruíz\nMaintainer: The package maintainer <sruiz@ced.uab.es>\nDescription: Optimizatopn ad.\nLicense: What license is it under?\nEncoding: UTF-8\nLazyData: true\n\n#' @\n",
+    "created" : 1518643373405.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "1516912736",
+    "id" : "29509302",
+    "lastKnownWriteTime" : 1518643919,
+    "last_content_update" : 1518643919819,
+    "path" : "~/migraR/DESCRIPTION",
+    "project_path" : "DESCRIPTION",
+    "properties" : {
+    },
+    "relative_order" : 2,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "dcf"
+}
