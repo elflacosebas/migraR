@@ -24,7 +24,7 @@ migramod <- setRefClass('MigraModelObject',
                                return(J[names(p),,drop=F])
                              },
                              gradient = function(p, data){
-                               r = data$y - value(p, data)
+                               r = data[,2] - value(p, data)
                                return(-jacobian(p, data) %*% r)
                              },
                              hessian = function(p, data){

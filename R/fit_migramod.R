@@ -9,8 +9,8 @@
 #'@param dataIn Empiral for estimate
 #'@param paramaters_0 set of Paramater for Rogers castro function
 #'@param model.rc Object of class migramod with roger Castro
-fit_migramod <- function(dataIn=dataIn, paramaters_0, model.rc  ){
-
+fit_migramod <- function(dataIn=dataIn, parameters_0, model.rc  ){
+  colnames(dataIn) <- c("x","y")
       graProof <- model.rc$gradient(p= parameters_0, data = dataIn)
       while((any(is.na(graProof)) | any(is.nan(graProof)))){
       parameters_0 <-  genRandomPar()
