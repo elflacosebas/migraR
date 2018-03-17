@@ -6,6 +6,30 @@
 \usage{
 best_migramod(dataIn = dataIn, model.rc)
 }
+\arguments{
+\item{dataIn}{Set data for fit}
+
+\item{model.rc}{a Object of class MigraMod}
+}
+\value{
+a list with named parameters
+}
 \description{
 One solution to initial values problems
+}
+\examples{
+data("es_asmr")
+data1 <- es_asmr[,c(1,3)]
+colnames(data1) <- c("x","y")
+model1 = MigraModel(
+ name = 'castro_11',
+ expr = rc_expression(profile = 11)$model.exp
+)
+
+fitted.val <- best_migramod(dataIn = data1, model.rc =model1)
+plot(data1, cex=0.1, xlab = 'Age', ylab = 'Standarized Migration Rate')
+lines(data1$x, model1$value(fitted.val$bestParam,data1), col="blue")
+
+
+
 }

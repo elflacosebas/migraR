@@ -4,14 +4,14 @@
 \alias{fit_migramod}
 \title{Estimate a migramod model}
 \usage{
-fit_migramod(dataIn = dataIn, paramaters_0, model.rc)
+fit_migramod(dataIn = dataIn, parameters_0, model.rc)
 }
 \arguments{
 \item{dataIn}{Empiral for estimate}
 
-\item{paramaters_0}{set of Paramater for Rogers castro function}
+\item{model.rc}{Object of class migramod with roger Castro expression usually}
 
-\item{model.rc}{Object of class migramod with roger Castro}
+\item{paramaters_0}{set of Paramater for Rogers castro function}
 }
 \description{
 Estimate a migramod model via no linear estimation

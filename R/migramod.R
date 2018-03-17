@@ -5,7 +5,7 @@
 #'The Rogesr and Castro models for a migration are so useful
 
 
-migramod <- setRefClass('MigraModelObject',
+MigraModel <- setRefClass('MigraModelObject',
                            fields = list(
                              name = 'character',
                              expr = 'expression'
@@ -24,7 +24,7 @@ migramod <- setRefClass('MigraModelObject',
                                return(J[names(p),,drop=F])
                              },
                              gradient = function(p, data){
-                               r = data[,2] - value(p, data)
+                               r = data$y - value(p, data)
                                return(-jacobian(p, data) %*% r)
                              },
                              hessian = function(p, data){

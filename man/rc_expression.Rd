@@ -4,12 +4,12 @@
 \alias{rc_expression}
 \title{Rogers and Castro expressions}
 \usage{
-rc_expression(model.name = "RC.11", profile = 11, ...)
+rc_expression(profile = 11, ...)
 }
 \arguments{
-\item{model.name}{character with the the of migration model}
-
 \item{profile}{a integer with the number of parameter for the model}
+
+\item{model.name}{character with the the of migration model}
 }
 \description{
 Are the Rogers and Castro expressions for  migration by individual or grouped ages with methods

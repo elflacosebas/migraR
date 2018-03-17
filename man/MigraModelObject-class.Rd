@@ -3,7 +3,7 @@
 \docType{class}
 \name{MigraModelObject-class}
 \alias{MigraModelObject-class}
-\alias{migramod}
+\alias{MigraModel}
 \title{Migration Rate Models Class}
 \description{
 Class with Rogers and castro Models.
