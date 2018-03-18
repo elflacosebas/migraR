@@ -6,6 +6,7 @@
 #'
 #'@param dataIn Set data for fit
 #'@param model.rc a Object of class MigraMod
+#'@param iter number of iterations for model
 #'
 #'@return a list with named parameters
 #'@examples
@@ -24,12 +25,12 @@
 #'
 #'
 
-best_migramod <- function(dataIn=dataIn, model.rc  ){
-  param_0 <- genRandomPar(11)
+best_migramod <- function(dataIn=dataIn, model.rc, iter= 100 ){
+   param_0 <- genRandomPar(11)
   colnames(dataIn) <- c("x","y")
   valSim <- fit_migramod(dataIn = dataIn, parameters_0=param_0, model.rc=model.rc )$values
   values.names <- names(valSim)
-  for(i in 1:50){
+  for(i in 1:iter){
     param_0 <- genRandomPar(11)
     valSim <- rbind(valSim,fit_migramod(dataIn = dataIn, parameters_0=param_0, model.rc )$values)
 

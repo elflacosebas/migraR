@@ -4,12 +4,14 @@
 \alias{best_migramod}
 \title{select best migramod model}
 \usage{
-best_migramod(dataIn = dataIn, model.rc)
+best_migramod(dataIn = dataIn, model.rc, iter = 100)
 }
 \arguments{
 \item{dataIn}{Set data for fit}
 
 \item{model.rc}{a Object of class MigraMod}
+
+\item{iter}{number of iterations for model}
 }
 \value{
 a list with named parameters
