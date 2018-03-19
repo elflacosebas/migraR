@@ -28,7 +28,8 @@
 best_migramod <- function(dataIn=dataIn, model.rc, iter= 100 ){
    param_0 <- genRandomPar(11)
   colnames(dataIn) <- c("x","y")
-  attach(dataIn)
+  x <- dataIn[,1]
+  y <- dataIn[,2]
   valSim <- fit_migramod(dataIn = dataIn, parameters_0=param_0, model.rc=model.rc )$values
   values.names <- names(valSim)
   for(i in 1:iter){
@@ -47,6 +48,9 @@ best_migramod <- function(dataIn=dataIn, model.rc, iter= 100 ){
 
         names(bestPar) <- names(param_0)
         names(bestPar.mape) <- names(param_0)
+
+        bestPar <- sapply(bestPar,as.list)
+        names(bestPar) <- names(param_0)
 
         return(list(bestParam=bestPar, dataSimul=dataSimul))
 
