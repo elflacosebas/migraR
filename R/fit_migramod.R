@@ -12,6 +12,8 @@
 
 fit_migramod <- function(dataIn=dataIn, parameters_0, model.rc  ){
   colnames(dataIn) <- c("x","y")
+  x <- dataIn$x
+  y <- dataIn$y
       graProof <- model.rc$gradient(p= parameters_0, data = dataIn)
       while((any(is.na(graProof)) | any(is.nan(graProof)))){
       parameters_0 <-  genRandomPar()
