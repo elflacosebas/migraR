@@ -32,9 +32,9 @@
 # 'fitted.val.7 <- best_migramod(dataIn = data1, model.rc =model.rc7, iter = 50, profile = "seven")
 #' fitted.val.11 <- best_migramod(dataIn = data1, model.rc =model.rc.11, iter = 50, profile = "eleven")
 #' fitted.val.13 <- best_migramod(dataIn = data1, model.rc =model.rc.13, iter = 50, profile = "thirteen")
-#' lines(data1[,1], model1$value(fitted.val.7$bestParam,data1), col="red")
-#' lines(data1[,1], model1$value(fitted.val.11$bestParam,data1), col="blue")
-#' lines(data1[,1], model1$value(fitted.val.13$bestParam,data1), col="gold")
+#' lines(data1[,1], model.rc7$value(fitted.val.7$bestParam,data1), col="red")
+#' lines(data1[,1], model.rc.11$value(fitted.val.11$bestParam,data1), col="blue")
+#' lines(data1[,1], model.rc.13$value(fitted.val.13$bestParam,data1), col="gold")
 #' legend("topright",legend = c("seven","eleven","thirteen"),fill = c("red","blue","gold"))
 
 #'
