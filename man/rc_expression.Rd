@@ -4,7 +4,7 @@
 \alias{rc_expression}
 \title{Rogers and Castro expressions}
 \usage{
-rc_expression(profile = 11, ...)
+rc_expression(profile = "eleven")
 }
 \arguments{
 \item{profile}{a integer with the number of parameter for the model}

@@ -23,10 +23,12 @@ fit_migramod <- function(dataIn=dataIn, parameters_0, model.rc  ){
     fit1 <-  nlminb(parameters_0 , function(p, data){
       #r = -((100/dim(dataIn)[1]) * sum(abs(data$y - mo$value(p,data))/(mo$value(p,data))))
       # r = -((data$y - mo$value(p,data))^2)
-      r = -(data$y - model.rc$value(p,data))
+      r = -(data$y - model.rc$value(p,x))
       return(r %*% r)
 
-    }, gradient = model.rc$gradient, hessian = model.rc$hessian, data=dataIn)
+    }, gradient = model.rc$gradient
+    , hessian = model.rc$hessian, data=dataIn
+    )
 
     #while(!(any(is.na(fit1$evaluations[2])) & any(is.nan(fit1$evaluations[2])))){
     #lines(dataIn$x, mo$value(fit1$par,dataIn), col="blue")

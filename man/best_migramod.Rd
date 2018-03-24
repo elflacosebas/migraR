@@ -4,7 +4,7 @@
 \alias{best_migramod}
 \title{select best migramod model}
 \usage{
-best_migramod(dataIn = dataIn, model.rc, iter = 100)
+best_migramod(dataIn = dataIn, model.rc, iter = 100, profile = "eleven")
 }
 \arguments{
 \item{dataIn}{Set data for fit}
@@ -21,17 +21,30 @@ One solution to initial values problems
 }
 \examples{
 data("es_asmr")
-data1 <- es_asmr[,c(1,3)]
+data1 <- es_asmr[,c(1,5)]
 colnames(data1) <- c("x","y")
-model1 = MigraModel(
- name = 'castro_11',
- expr = rc_expression(profile = 11)$model.exp
+model.rc.13 = MigraModel(
+  name = 'castro_11',
+  expr = rc_expression(profile = "thirteen")
 )
 
-fitted.val <- best_migramod(dataIn = data1, model.rc =model1)
-plot(data1, cex=0.1, xlab = 'Age', ylab = 'Standarized Migration Rate')
-lines(data1$x, model1$value(fitted.val$bestParam,data1), col="blue")
+model.rc7 = MigraModel(
+  name = 'castro_7',
+  expr = rc_expression(profile = "seven")
+)
+model.rc.11 = MigraModel(
+  name = 'castro_11',
+  expr = rc_expression(profile = "eleven")
+)
 
+plot(data1, cex=0.1, xlab = 'Age', ylab = 'Standarized Migration Rate')
+
+fitted.val.11 <- best_migramod(dataIn = data1, model.rc =model.rc.11, iter = 50, profile = "eleven")
+fitted.val.13 <- best_migramod(dataIn = data1, model.rc =model.rc.13, iter = 50, profile = "thirteen")
+lines(data1[,1], model1$value(fitted.val.7$bestParam,data1), col="red")
+lines(data1[,1], model1$value(fitted.val.11$bestParam,data1), col="blue")
+lines(data1[,1], model1$value(fitted.val.13$bestParam,data1), col="gold")
+legend("topright",legend = c("seven","eleven","thirteen"),fill = c("red","blue","gold"))
 
 
 }

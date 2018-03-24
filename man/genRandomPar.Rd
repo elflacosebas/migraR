@@ -4,14 +4,14 @@
 \alias{genRandomPar}
 \title{Generator function for initial values in rogers castro models}
 \usage{
-genRandomPar(n.param = 11, mu2 = c(1, 50), mu3 = c(1, 90), ...)
+genRandomPar(profile = "seven", ...)
 }
 \arguments{
+\item{...}{Aditional argument passed to function}
+
 \item{mu2}{first value for maximum in model}
 
 \item{mu3}{second value maximum in model}
-
-\item{...}{Aditional argument passed to function}
 }
 \value{
 A list with random values for parameters
