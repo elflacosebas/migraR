@@ -18,7 +18,7 @@
 #'   expr = rc_expression(profile = "thirteen")
 #' )
 #'
-#' model.rc7 = MigraModel(
+#' model.rc.7 = MigraModel(
 #'   name = 'castro_7',
 #'   expr = rc_expression(profile = "seven")
 #' )
@@ -28,17 +28,14 @@
 #' )
 #'
 #' plot(data1, cex=0.1, xlab = 'Age', ylab = 'Standarized Migration Rate')
-#'
-# 'fitted.val.7 <- best_migramod(dataIn = data1, model.rc =model.rc7, iter = 50, profile = "seven")
+#' fitted.val.7 <- best_migramod(dataIn = data1, model.rc =model.rc.7, iter = 50, profile = "seven")
 #' fitted.val.11 <- best_migramod(dataIn = data1, model.rc =model.rc.11, iter = 50, profile = "eleven")
 #' fitted.val.13 <- best_migramod(dataIn = data1, model.rc =model.rc.13, iter = 50, profile = "thirteen")
-#' lines(data1[,1], model.rc7$value(fitted.val.7$bestParam,data1), col="red")
+#' lines(data1[,1], model.rc.7$value(fitted.val.7$bestParam,data1), col="red")
 #' lines(data1[,1], model.rc.11$value(fitted.val.11$bestParam,data1), col="blue")
 #' lines(data1[,1], model.rc.13$value(fitted.val.13$bestParam,data1), col="gold")
-#' legend("topright",legend = c("seven","eleven","thirteen"),fill = c("red","blue","gold"))
+#' legend("topright",legend = c("Seven","Eleven","Thirteen"),fill = c("red","blue","gold"))
 
-#'
-#'
 
 best_migramod <- function(dataIn=dataIn, model.rc, iter= 100,profile="eleven"){
    param_0 <- genRandomPar(profile=profile)
@@ -69,14 +66,15 @@ best_migramod <- function(dataIn=dataIn, model.rc, iter= 100,profile="eleven"){
 
    bestPar <- dataSimul[which.min(dataSimul$optimResult),params.n$hat]
         bestPar.mape <- dataSimul[which.min(dataSimul$MAPE),params.n$hat]
-
+    bestOptimRes <- dataSimul[which.min(dataSimul$optimResult), "optimResult"]
+    bestMAPE <- dataSimul[which.min(dataSimul$MAPE),"MAPE"]
         names(bestPar) <- names(param_0)
         names(bestPar.mape) <- names(param_0)
 
         bestPar <- sapply(bestPar,as.list)
         names(bestPar) <- names(param_0)
 
-        return(list(bestParam=bestPar, dataSimul=dataSimul))
+        return(list(bestParam=bestPar, bestOptimRes=bestOptimRes, bestMAPE=bestMAPE,dataSimul=dataSimul))
 
         }
 
