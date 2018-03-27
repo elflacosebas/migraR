@@ -4,14 +4,16 @@
 \alias{best_migramod}
 \title{select best migramod model}
 \usage{
-best_migramod(dataIn = dataIn, model.rc, iter = 100, profile = "eleven")
+best_migramod(dataIn = dataIn, model.rc, profile = "eleven", maxite = 10)
 }
 \arguments{
 \item{dataIn}{Set data for fit}
 
 \item{model.rc}{a Object of class MigraMod}
 
-\item{iter}{number of iterations for model}
+\item{profile}{According parameter size of Roger Castro models}
+
+\item{maxiter}{Maximum number of iterations for model optimization}
 }
 \value{
 a list with named parameters
@@ -20,11 +22,14 @@ a list with named parameters
 One solution to initial values problems
 }
 \examples{
+require(migraR)
+require(dplyr)
 data("es_asmr")
-data1 <- es_asmr[,c(1,5)]
+data1 <- es_asmr[-c(1,2),c(1,5)]
 colnames(data1) <- c("x","y")
+attach(data1)
 model.rc.13 = MigraModel(
-  name = 'castro_11',
+  name = 'castro_13',
   expr = rc_expression(profile = "thirteen")
 )
 
@@ -38,11 +43,11 @@ model.rc.11 = MigraModel(
 )
 
 plot(data1, cex=0.1, xlab = 'Age', ylab = 'Standarized Migration Rate')
-fitted.val.7 <- best_migramod(dataIn = data1, model.rc =model.rc.7, iter = 50, profile = "seven")
-fitted.val.11 <- best_migramod(dataIn = data1, model.rc =model.rc.11, iter = 50, profile = "eleven")
-fitted.val.13 <- best_migramod(dataIn = data1, model.rc =model.rc.13, iter = 50, profile = "thirteen")
-lines(data1[,1], model.rc.7$value(fitted.val.7$bestParam,data1), col="red")
-lines(data1[,1], model.rc.11$value(fitted.val.11$bestParam,data1), col="blue")
-lines(data1[,1], model.rc.13$value(fitted.val.13$bestParam,data1), col="gold")
-legend("topright",legend = c("Seven","Eleven","Thirteen"),fill = c("red","blue","gold"))
+fitted.val.11 <- best_migramod(dataIn = data1, model.rc =model.rc.11, maxite = 5E2, profile = "eleven")
+lines(data1[,1], model.rc.11$value(fitted.val.11$bestParam,data1), col="blue", lty=3)
+fitted.val.7 <- best_migramod(dataIn = data1, model.rc =model.rc.7, maxite = 5E2, profile = "seven")
+lines(data1[,1], model.rc.7$value(fitted.val.7$bestParam,data1), col="blue")
+fitted.val.13 <- best_migramod(dataIn = data1, model.rc =model.rc.13, maxite = 5E2, profile = "thirteen")
+lines(data1[,1], model.rc.13$value(fitted.val.13$bestParam,data1), col="green")
+legend("topright",legend = c("seven","eleven","thirteen"),fill = c("red","blue","green"))
 }
