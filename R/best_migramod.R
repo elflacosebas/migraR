@@ -41,10 +41,8 @@
 #' legend("topright",legend = c("seven","eleven","thirteen"),fill = c("red","blue","green"))
 
 
-best_migramod <- function(dataIn=dataIn, model.rc, profile="eleven",maxite=1E1){
-  epsilon <- 0.0001
-
-   param_0 <- genRandomPar(profile=profile)
+best_migramod <- function(dataIn=dataIn, model.rc, profile="eleven",maxite=100, epsilon = 1E-5, datasimul=T){
+  param_0 <- genRandomPar(profile=profile)
   colnames(dataIn) <- c("x","y")
   x <- dataIn[,1]
   y <- dataIn[,2]
@@ -60,16 +58,41 @@ best_migramod <- function(dataIn=dataIn, model.rc, profile="eleven",maxite=1E1){
   opti <- unlist(valSim[opti.pos])
   counter <-  1
   pb <- txtProgressBar(counter, maxite,style = 3)
-  while ((abs(opti - epsilon) > 1E-06)  &&  counter < maxite ){
+  while (opti > epsilon  &&  counter < maxite ){
  # for(i in 1:iter){
     param_0 <- genRandomPar(profile=profile)
-    valSim <- rbind(valSim,fit_migramod(dataIn = dataIn, parameters_0=param_0, model.rc )$values)
-    opti <- unlist(valSim[nrow(valSim),opti.pos])
-    counter =counter + 1
-    setTxtProgressBar(pb, counter)
+    if(datasimul){
+      valSim <- rbind(valSim,fit_migramod(dataIn = dataIn, parameters_0=param_0, model.rc )$values)
+      opti <- unlist(valSim[nrow(valSim),opti.pos])
+      counter =counter + 1
+      setTxtProgressBar(pb, counter)
+    }else {
+
+      valSim_b  <- fit_migramod(dataIn = dataIn, parameters_0=param_0, model.rc )$values
+      opti <- unlist(valSim_b[opti.pos])
+      if(counter == 0){
+        valSim <- valSim_b
+
+      }else{ valSim <- valSim}
+     if(opti < unlist(valSim[opti.pos])){
+       valSim <- valSim_b
+     }else {
+         valSim <- valSim
+         }
+      counter =counter + 1
+      setTxtProgressBar(pb, counter)
+
+    }
+
   }
   close(pb)
-  rownames(valSim)<- 1:nrow(valSim)
+  if(datasimul){
+    rownames(valSim)<- 1:nrow(valSim)
+
+  }else{
+    valSim <- rbind(valSim,valSim)
+  }
+
 
   params.n <- switch (profile,
     seven = list(subzero=1:7,hat=8:14)

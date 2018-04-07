@@ -17,6 +17,9 @@ fit_migramod <- function(dataIn=dataIn, parameters_0, model.rc  ){
   #envir <- new.env()
   #assign("N", 27, envir = env)
       graProof <- model.rc$gradient(p= parameters_0, data = dataIn)
+      constrains <- matrix(rep(c(0,0.7),nrow(graProof)),c(nrow(graProof),2),byrow = T )
+      mu.rows <- grepl("mu",row.names(graProof))
+      constrains[mu.rows,] <- sort(rep(c(1,90),sum(mu.rows)))
       while((any(is.na(graProof)) || any(is.nan(graProof)))){
       parameters_0 <-  genRandomPar()
       graProof <- model.rc$gradient(p= parameters_0, data = dataIn)
@@ -29,7 +32,8 @@ fit_migramod <- function(dataIn=dataIn, parameters_0, model.rc  ){
       return(r %*% r)
 
     }, gradient = model.rc$gradient
-    ,hessian = model.rc$hessian, data=dataIn, lower = 0, upper = Inf),silent = T)
+    ,hessian = model.rc$hessian, data=dataIn, lower = constrains[,1]
+              , upper = constrains[,2]),silent = T)
 
     #while(!(any(is.na(fit1$evaluations[2])) & any(is.nan(fit1$evaluations[2])))){
     #lines(dataIn$x, mo$value(fit1$par,dataIn), col="blue")
