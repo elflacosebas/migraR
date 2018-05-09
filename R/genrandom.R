@@ -1,9 +1,19 @@
-#' Generator function for initial values in rogers castro models
+#' Generator function for initial values in Rogers and Castro models
 #'
-#' Generate the 7 , 9 or 11 random values for Roger Castro migration models
-#' @param mu2 first value for maximum in model
-#' @param mu3 second value maximum in model
-#' @param ... Aditional argument passed to function
+#' Generate 7, 9 or 11 random values for Roger and Castro migration models
+#' @param a1 First level parameter.
+#' @param a2 Second level parameter.
+#' @param a3 Third first level parameter.
+#' @param c Fourth level parameter or constant.
+#' @param alpha_1 first profile parameter: rate of descent of prelabour force component.
+#' @param mu2 First position parameter: mean age at highest peak.
+#' @param alpha_2 third profile parameter: rate of ascent of labour force component.
+#' @param lambda_2 third profile parameter: rate of descent of labour force component.
+#' @param mu_3 Second position parameter: age at retiremen peak.
+#' @param alpha_3 third profile parameter: rate of ascent of post-labour force component.
+#' @param lambda_3 third profile parameter: rate of descent of post-labour force component.
+#'
+#' @param ... Aditional argumemnts given to function
 #' @return A list with random values for parameters
 #' @examples
 #' genRandomPar(7)
@@ -22,7 +32,7 @@ genRandomPar <- function(profile = "seven",  ...){
 
   #primera exponencial
   a1 <- runif(1, param$a1[1], param$a1[2])
-  alpha1 <- runif(1,param$alpha1[1], param$alpha1[2])
+  alpha1 <- runif(1,param$alpha1[1], pascenaram$alpha1[2])
 
   #segunda exponencial
   a2 <- runif(1, param$a2[1], param$a2[2])
