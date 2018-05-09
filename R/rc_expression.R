@@ -1,8 +1,8 @@
-#' Rogers and Castro expressions
+#' Rogers and Castro expressions (Rogers and Castro, 1981)
 #'
-#' Are the Rogers and Castro expressions for  migration by individual or grouped ages with methods
-#' @param model.name character with the the of migration model
-#' @param profile a integer with the number of parameter for the model
+#' Rogers and Castro Expressions for migration by individual or grouped ages with methods
+#' @param model.name Character with the the of migration model
+#' @param An integer with the number of parameters in the model
 
 
 rc_expression <-   function(profile = "eleven"){
