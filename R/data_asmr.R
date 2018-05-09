@@ -1,7 +1,7 @@
-#' Age specific migration rate data
+#' Age specific migration rate data Spanish example. 
 #'
-#' Rates for migration and inmigration by  individual ages  form males and females.
-#' The rates wa calculated from IPUMS data bases for several countries.
+#' Internal and Interational Spanish migration by single ages and sex. 
+#' Rates were calculated from the Spanish Statisticall Institute (INE).
 #'
 #'@docType data
 #'
