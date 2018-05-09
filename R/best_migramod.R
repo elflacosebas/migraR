@@ -1,13 +1,13 @@
-#'select best migramod model
+#'Select best migramod model.
 #'
-#'One solution to initial values problems
+#'One solution to initial values problem based on the generaton of a random sample with size equals one from uniform apriori
+#'distributions with values between 0 and 1 for the initial parameters.  
 #'
 #'
-#'
-#'@param dataIn Set data for fit
-#'@param model.rc a Object of class MigraMod
-#'@param maxiter Maximum number of iterations for model optimization
-#'@param profile According parameter size of Roger Castro models
+#'@param dataIn Standarized migration data set for optimization.
+#'@param model.rc a Object of class MigraMod.
+#'@param maxiter Maximum number of iterations for model optimization.
+#'@param profile Number of parameters of a Roger and Castro model.
 #'
 #'@return a list with named parameters
 #'@examples
