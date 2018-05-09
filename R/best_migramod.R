@@ -1,15 +1,15 @@
-#'select best migramod model
+#'select best migramod model Select the best Migramod Model
 #'
-#'One solution to initial values problems
+#'The solution for the initial values incorpores a sample of size one from uniform apriori distribution 
+#'of each initial parameter. This function uses fitmigramod to optimize maxiter times. 
 #'
 #'
+#'@param dataIn Spanish Standarized rates of internal and international migration.
+#'@param model.rc a Object of class MigraMod.
+#'@param maxiter Maximum number of iterations for parameter optimization.
+#'@param profile Number of parameters in the Roger Castro model equations. 
 #'
-#'@param dataIn Set data for fit
-#'@param model.rc a Object of class MigraMod
-#'@param maxiter Maximum number of iterations for model optimization
-#'@param profile According parameter size of Roger Castro models
-#'
-#'@return a list with named parameters
+#'@return A list with the previous function parameters.
 #'@examples
 #' require(migraR)
 #'require(dplyr)
