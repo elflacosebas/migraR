@@ -32,7 +32,7 @@ genRandomPar <- function(profile = "seven",  ...){
 
   #primera exponencial
   a1 <- runif(1, param$a1[1], param$a1[2])
-  alpha1 <- runif(1,param$alpha1[1], pascenaram$alpha1[2])
+  alpha1 <- runif(1,param$alpha1[1], param$alpha1[2])
 
   #segunda exponencial
   a2 <- runif(1, param$a2[1], param$a2[2])
