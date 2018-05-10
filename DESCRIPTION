@@ -1,7 +1,7 @@
 Package: migraR
 Type: Package
 Title: Useful tools for migration analytics
-Version: 0.1.0
+Version: 0.1.1
 Author: Sebastian Ruíz / Jackson Garcés
 Maintainer: The package maintainer <sruiz@ced.uab.es>
 Description: Optimizatopn ad.
