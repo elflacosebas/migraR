@@ -3,15 +3,15 @@
 \docType{data}
 \name{es_asmr}
 \alias{es_asmr}
-\title{Age specific migration rate data}
+\title{Spanish age specific migration rate data}
 \format{A \code{data.frame} with 7 columns with age \code{foreing.m} and \code{foreing.f} for foreing rates males and females.
  The \code{intercounties.m} and \code{intercounties.f}, the last two \code{intercity.m} and \code{intercity.m}}
 \usage{
 data(es_asrm)
 }
 \description{
-Rates for migration and inmigration by  individual ages  form males and females.
-The rates wa calculated from IPUMS data bases for several countries.
+Internal and International migration rates by sigle age and sex for Spain.
+Those rates are calculated with using the data form the Spanish Statistical Institute (INE).
 }
 \keyword{datasets}
 \keyword{migration}

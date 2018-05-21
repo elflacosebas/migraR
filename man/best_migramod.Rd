@@ -2,24 +2,26 @@
 % Please edit documentation in R/best_migramod.R
 \name{best_migramod}
 \alias{best_migramod}
-\title{select best migramod model}
+\title{Select best migramod model.}
 \usage{
-best_migramod(dataIn = dataIn, model.rc, profile = "eleven", maxite = 10)
+best_migramod(dataIn = dataIn, model.rc, profile = "eleven", maxite = 100,
+  epsilon = 1e-05, datasimul = T)
 }
 \arguments{
-\item{dataIn}{Set data for fit}
+\item{dataIn}{Standarized migration data set for optimization.}
 
-\item{model.rc}{a Object of class MigraMod}
+\item{model.rc}{a Object of class Migramod.}
 
-\item{profile}{According parameter size of Roger Castro models}
+\item{profile}{Number of parameters of a Roger and Castro model.}
 
-\item{maxiter}{Maximum number of iterations for model optimization}
+\item{maxiter}{Maximum number of iterations for model optimization.}
 }
 \value{
 a list with named parameters
 }
 \description{
-One solution to initial values problems
+One solution to initial values problem based on the generaton of a random sample with size equals one from uniform apriori
+distributions with values between 0 and 1 for the initial parameters.
 }
 \examples{
 require(migraR)

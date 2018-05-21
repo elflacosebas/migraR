@@ -1,10 +1,10 @@
 Package: migraR
 Type: Package
-Title: Useful tools for migration analytics
+Title: Rogers and Castro Migrarion Models Schedule Otpimization
 Version: 0.1.1
-Author: Sebastian Ruíz / Jackson Garcés
+Author: J. Sebastian Ruiz-Santacruz / Jackson Garcés Hernández
 Maintainer: The package maintainer <sruiz@ced.uab.es>
-Description: Optimizatopn ad.
+Description: Opimization Algorithms for Model Migration Schedules.
 License: MIT
 Encoding: UTF-8
 LazyData: true

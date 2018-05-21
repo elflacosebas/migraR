@@ -2,15 +2,15 @@
 % Please edit documentation in R/rc_expression.R
 \name{rc_expression}
 \alias{rc_expression}
-\title{Rogers and Castro expressions}
+\title{Rogers and Castro expressions (Rogers and Castro, 1981)}
 \usage{
 rc_expression(profile = "eleven")
 }
 \arguments{
-\item{profile}{a integer with the number of parameter for the model}
+\item{model.name}{Character with the the of migration model}
 
-\item{model.name}{character with the the of migration model}
+\item{An}{integer with the number of parameters in the model}
 }
 \description{
-Are the Rogers and Castro expressions for  migration by individual or grouped ages with methods
+Rogers and Castro Expressions for migration by individual or grouped ages with methods
 }

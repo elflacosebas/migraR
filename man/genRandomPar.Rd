@@ -2,22 +2,40 @@
 % Please edit documentation in R/genrandom.R
 \name{genRandomPar}
 \alias{genRandomPar}
-\title{Generator function for initial values in rogers castro models}
+\title{Generator function for initial values in Rogers and Castro models}
 \usage{
 genRandomPar(profile = "seven", ...)
 }
 \arguments{
-\item{...}{Aditional argument passed to function}
+\item{...}{Aditional argumemnts given to function}
 
-\item{mu2}{first value for maximum in model}
+\item{a1}{First level parameter.}
 
-\item{mu3}{second value maximum in model}
+\item{a2}{Second level parameter.}
+
+\item{a3}{Third first level parameter.}
+
+\item{c}{Fourth level parameter or constant.}
+
+\item{alpha_1}{first profile parameter: rate of descent of prelabour force component.}
+
+\item{mu2}{First position parameter: mean age at highest peak.}
+
+\item{alpha_2}{third profile parameter: rate of ascent of labour force component.}
+
+\item{lambda_2}{third profile parameter: rate of descent of labour force component.}
+
+\item{mu_3}{Second position parameter: age at retiremen peak.}
+
+\item{alpha_3}{third profile parameter: rate of ascent of post-labour force component.}
+
+\item{lambda_3}{third profile parameter: rate of descent of post-labour force component.}
 }
 \value{
 A list with random values for parameters
 }
 \description{
-Generate the 7 , 9 or 11 random values for Roger Castro migration models
+Generate 7, 9 or 11 random values for Roger and Castro migration models
 }
 \examples{
 genRandomPar(7)

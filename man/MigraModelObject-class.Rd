@@ -4,11 +4,15 @@
 \name{MigraModelObject-class}
 \alias{MigraModelObject-class}
 \alias{MigraModel}
-\title{Migration Rate Models Class}
+\title{Migration Rate Models Class.}
 \description{
-Class with Rogers and castro Models.
+Class built based on Rogers and castro Models.
 }
 \details{
-The Rogesr and Castro models for a migration are so useful
+The Rogers and Castro models where thought to analize the behaviour of the schedule and to parametrize it. 
+The use is very used in population projections and matematical modelling of migration for behaviour clustering
+with the persistent regularities and the selectivity in age and sex. The model has four main components (Rogers and Castro, 1981): 
+A single negative curve of the pre-labour force, a left-skewed unimodal curve of the labour force, an almost bell shaped curve of post-labour force.
+A constant curve c, wich improves the fit of te mathemsatical expression to the observed schedule.
 }
 
