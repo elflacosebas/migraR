@@ -1,5 +1,5 @@
 # migraR
-R package for migration analysis focused now in the Rogers and Castro multi exponential model and the estimation of the parameters using a bayesian simulation based on uniform a priori distributions for each parameter between 0 and 1. 
+R package for migration analysis focused now on the Rogers and Castro multi exponential model and the estimation of the parameters using a bayesian simulation based on uniform a priori distributions for each parameter between 0 and 1. 
 
 
 This package was created by J. Sebastian Ruiz-Santacruz and Jackson Garcés in 2018.
