@@ -22,7 +22,7 @@ profit of the fucntion migramodel
 
 **migraR functions**
 
-The migraR functions were concived for estimate via non-linear optimization, the parameters of 
+The migraR functions were concived for estimate via linear optimization of the $log(MR)$, the parameters of 
 the Rogers and Castro models wit seven, eleven and thirteen parameters. Besides, the package 
 gives the user the posibility to investigate wich curve fits better using the method provided 
 in the IUSSP manual for the estimation of Rogers and Castro multi exponential model migration 
