@@ -1,5 +1,5 @@
 # migraR
-R package for migration analysis
+R package for migration analysis focused by now in the Rogers and Castro multi exponential model.
 
 
 This package was created by J. Sebastian Ruiz-Santacruz and Jackson Garcés in 2018.
