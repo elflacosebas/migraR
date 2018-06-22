@@ -10,7 +10,7 @@ To install the package in R, you must install first the package dplyr and devtoo
 
 `install.packages(devtools)`
 
-and call them with `library(dplyr)` and `library(devtools)'
+and call them with `library(dplyr)` and `library(devtools)`
 
 after running previous lines, you should use the function install.github to dowload de package as follows:
 
