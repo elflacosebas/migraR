@@ -6,8 +6,8 @@ This package was created by J. Sebastian Ruiz-Santacruz and Jackson Garcés in 2
 
 To install the package in R, you must install first the package dplyr and devtools running the following statements:
 
-install.packages(dplyr)
-install.packages(devtools)
+`install.packages(dplyr)`
+`install.packages(devtools)`
 
 after running previous lines, you should use the function install.github to dowload de package as follows:
 
