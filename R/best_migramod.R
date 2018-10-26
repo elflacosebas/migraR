@@ -17,19 +17,23 @@
 #' data1 <- es_asmr[-c(1,2),c(1,5)]
 #' colnames(data1) <- c("x","y")
 #' attach(data1)
-#' model.rc.13 = MigraModel(
-#'   name = 'castro_13',
-#'   expr = rc_expression(profile = "thirteen")
-#' )
-#'
 #' model.rc.7 = MigraModel(
 #'   name = 'castro_7',
 #'   expr = rc_expression(profile = "seven")
+#' )
+#' model.rc.9 = MigraModel(
+#'   name = 'castro_7',
+#'   expr = rc_expression(profile = "nine")
 #' )
 #' model.rc.11 = MigraModel(
 #'   name = 'castro_11',
 #'   expr = rc_expression(profile = "eleven")
 #' )
+#' model.rc.13 = MigraModel(
+#'   name = 'castro_13',
+#'   expr = rc_expression(profile = "thirteen")
+#' )
+#'
 #'
 #' plot(data1, cex=0.1, xlab = 'Age', ylab = 'Standarized Migration Rate')
 #' fitted.val.11 <- best_migramod(dataIn = data1, model.rc =model.rc.11, maxite = 5E2, profile = "eleven")
@@ -51,6 +55,7 @@ best_migramod <- function(dataIn=dataIn, model.rc, profile="eleven",maxite=100, 
 
   opti.pos <- switch (profile,
                   seven = 15
+                  ,nine = 19
                   ,eleven = 23
                   ,thirteen = 27
     )
@@ -96,6 +101,7 @@ best_migramod <- function(dataIn=dataIn, model.rc, profile="eleven",maxite=100, 
 
   params.n <- switch (profile,
     seven = list(subzero=1:7,hat=8:14)
+    ,nine = list(subzero=1:9,hat=10:18)
     ,eleven = list(subzero=1:11,hat=12:22)
     ,thirteen = list(subzero=1:13,hat=14:26)
   )

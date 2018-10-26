@@ -1,6 +1,6 @@
 #' Generator function for initial values in Rogers and Castro models
 #'
-#' Generate 7, 9 or 11 random values for Roger and Castro migration models
+#' Generate 7, 9, 11 and 13 random values for Roger and Castro migration models
 #' @param a1 First level parameter.
 #' @param a2 Second level parameter.
 #' @param a3 Third first level parameter.
@@ -27,7 +27,7 @@ genRandomPar <- function(profile = "seven",  ...){
                 ,a4=c(0,0.9), lambda4=c(0,0.9)
                 ,c1=c(0,0.9))
   param2 <- list(...)
- param <- c(param1[setdiff(names(param1), names(param2))]
+  param <- c(param1[setdiff(names(param1), names(param2))]
              ,param2)
 
   #primera exponencial
