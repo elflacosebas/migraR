@@ -36,12 +36,19 @@
 #'
 #'
 #' plot(data1, cex=0.1, xlab = 'Age', ylab = 'Standarized Migration Rate')
-#' fitted.val.11 <- best_migramod(dataIn = data1, model.rc =model.rc.11, maxite = 5E2, profile = "eleven")
-#' lines(data1[,1], model.rc.11$value(fitted.val.11$bestParam,data1), col="blue", lty=3)
+#'
 #' fitted.val.7 <- best_migramod(dataIn = data1, model.rc =model.rc.7, maxite = 5E2, profile = "seven")
 #' lines(data1[,1], model.rc.7$value(fitted.val.7$bestParam,data1), col="blue")
+#'
+#' fitted.val.7 <- best_migramod(dataIn = data1, model.rc =model.rc.7, maxite = 5E2, profile = "nine")
+#' lines(data1[,1], model.rc.9$value(fitted.val.9$bestParam,data1), col="blue")
+#'
+#' fitted.val.11 <- best_migramod(dataIn = data1, model.rc =model.rc.11, maxite = 5E2, profile = "eleven")
+#' lines(data1[,1], model.rc.11$value(fitted.val.11$bestParam,data1), col="blue", lty=3)
+
 #' fitted.val.13 <- best_migramod(dataIn = data1, model.rc =model.rc.13, maxite = 5E2, profile = "thirteen")
 #' lines(data1[,1], model.rc.13$value(fitted.val.13$bestParam,data1), col="green")
+#'
 #' legend("topright",legend = c("seven","eleven","thirteen"),fill = c("red","blue","green"))
 
 

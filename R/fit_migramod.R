@@ -1,16 +1,12 @@
 #' Estimate a migramod model.
 #'
-#' Estimate a migramod model via no linear estimation.
+#' Estimate a migramod model via linear optimization
 #'
-#'
-#'
-#'
-#'
-#'@param dataIn Empirical (out/in) migration rates for estimation. 
+#'@param dataIn Empirical (out/in) migration rates for estimation.
 #'@param paramaters_0 Set of initial parameters for selected Rogers and Castro model equation.
-#'@param model.rc Object of class migramod with usually a Rogers and Castro model expression. 
+#'@param model.rc Object of class migramod with usually a Rogers and Castro model expression.
 
-fit_migramod <- function(dataIn=dataIn, parameters_0, model.rc  ){
+fit_migramod <- function(dataIn=dataIn, parameters_0, model.rc){
   colnames(dataIn) <- c("x","y")
   x <- dataIn$x
   y <- dataIn$y
