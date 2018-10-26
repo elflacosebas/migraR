@@ -26,7 +26,7 @@ genRandomPar <- function(profile = "seven",  ...){
                 , a3=c(0,0.9), alpha3=c(0,0.9), mu3=c(1,90), lambda3=c(0,0.9)
                 ,a4=c(0,0.9), lambda4=c(0,0.9)
                 ,c1=c(0,0.9))
-  param2 <- list(...)
+  param2 <- list()
   param <- c(param1[setdiff(names(param1), names(param2))]
              ,param2)
 
@@ -63,6 +63,7 @@ genRandomPar <- function(profile = "seven",  ...){
 
 switch(profile,
        seven= parameters_0[c(1:6,13)]
+       ,nine= parameters_0[c(1:7,9,13)]
        ,eleven =parameters_0[c(1:10,13)]
       , thirteen = parameters_0[])
 }
