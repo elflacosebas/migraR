@@ -108,7 +108,7 @@ See also the list of [contributors](https://github.com/your/project/contributors
 
 =======
 # migraR
-R package for migration analysis focused now in the Rogers and Castro multi exponential model and the estimation of the parameters using a bayesian simulation based on uniform a priori distributions for each parameter between 0 and 1. 
+R package for migration analysis focused now on the Rogers and Castro multi exponential model and the estimation of the parameters using a bayesian simulation based on uniform a priori distributions for each parameter between 0 and 1. 
 
 
 This package was created by J. Sebastian Ruiz-Santacruz and Jackson Garcés in 2018.
@@ -119,6 +119,8 @@ To install the package in R, you must install first the package dplyr and devtoo
 
 `install.packages(devtools)`
 
+and call them with `library(dplyr)` and `library(devtools)`
+
 after running previous lines, you should use the function install.github to dowload de package as follows:
 
 `install_github("elflacosebas/migraR")`
@@ -126,8 +128,8 @@ after running previous lines, you should use the function install.github to dowl
 **Description**
 
 The migraR package provides functions for estimate the parameters for Rogers and Castro Models: 
-rc.7, rc.11, rc.13 like a package migest. You may create your own multiexponetial model making 
-profit of the fucntion migramodel
+rc.7, rc.11, rc.13 are created in the example using the Migramodel class. You may create your own multiexponetial model making 
+profit of the fucntion migramodel.
 
 **migraR functions**
 
