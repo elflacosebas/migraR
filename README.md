@@ -34,14 +34,14 @@ install.packages('dplyr')
 ### Installing
 
 Call the packages with `library(dplyr)` and `library(devtools)`
-then type `install_github("elflacosebas/migraR")`
-
-The example was chosen selecting the migration data from Spainish Census 2011. 
+then type `install_github("elflacosebas/migraR")`. 
 
 ###Example
 
+The example was chosen selecting the migration data from Spainish Census 2011. 
+
 ```
-# Creating MigraModel Classes based on Rogers and Castro expressions. 
+# Calling packages and dataset.
 
 require(migraR)
 require(dplyr)
@@ -49,6 +49,8 @@ data("es_asmr")
 data1 <- es_asmr[-c(1,2),c(1,5)]
 colnames(data1) <- c("x","y")
 attach(data1)
+
+# Creating MigraModel Classes based on Rogers and Castro expressions. 
 
 model.rc.7 = MigraModel(
    name = 'castro_7',
