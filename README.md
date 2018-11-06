@@ -44,6 +44,7 @@ The example was chosen selecting the migration data from Spainish Census 2011.
 Example
 ```
 ```
+#Creating MigraModel Classes based on Rogers and Castro expressions. 
 
 require(migraR)
 require(dplyr)
@@ -72,6 +73,7 @@ model.rc.9 = MigraModel(
    expr = rc_expression(profile = "thirteen")
  )
 
+#Plotting data
 
  plot(data1, cex=0.1, xlab = 'Age', ylab = 'Standarized Migration Rate')
 
@@ -79,7 +81,7 @@ model.rc.9 = MigraModel(
  lines(data1[,1], model.rc.7$value(fitted.val.7$bestParam,data1), col="blue")
 
  fitted.val.9 <- best_migramod(dataIn = data1, model.rc =model.rc.7, maxite = 5E2, profile = "nine")
- lines(data1[,1], model.rc.9$value(fitted.val.9$bestParam,data1), col="blue")
+ lines(data1[,1], model.rc.9$value(fitted.val.9$bestParam,data1), col="orange")
 
  fitted.val.11 <- best_migramod(dataIn = data1, model.rc =model.rc.11, maxite = 5E2, profile = "eleven")
  lines(data1[,1], model.rc.11$value(fitted.val.11$bestParam,data1), col="blue", lty=3)
