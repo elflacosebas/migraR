@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-
 
 # migraR
 R package for migration analysis focused now on the Rogers and Castro multi exponential model and the estimation of the parameters using a bayesian simulation based on uniform a priori distributions for each parameter between 0 and 1. 
@@ -17,7 +15,6 @@ profit of the fucntion migramodel.
 The migraR functions were concived for estimate via linear optimization of the log(Migration Rate), the parameters of the Rogers and Castro models wit seven, eleven and thirteen parameters. Besides, the package gives the user the posibility to investigate wich curve fits better using the methodology provided in the IUSSP manual for the estimation of Rogers and Castro multi exponential model migration schedule with the same method for the optimization without constrains. 
 
 http://demographicestimation.iussp.org/content/multi-exponential-model-migration-schedule
-
 
 Package under contiuous changes! place your bugs on the github tab issues :) :rocket:
 
@@ -42,9 +39,7 @@ then type install_github("elflacosebas/migraR")
 ```
 Give the example
 ```
-
 The example was chosen selecting the migration data from Spainish Census 2011. 
-
 ```
 Example
 ```
@@ -63,7 +58,7 @@ model.rc.7 = MigraModel(
  )
  
 model.rc.9 = MigraModel(
-   name = 'castro_7',
+   name = 'castro_9',
    expr = rc_expression(profile = "nine")
  )
  
@@ -88,6 +83,7 @@ model.rc.9 = MigraModel(
 
  fitted.val.11 <- best_migramod(dataIn = data1, model.rc =model.rc.11, maxite = 5E2, profile = "eleven")
  lines(data1[,1], model.rc.11$value(fitted.val.11$bestParam,data1), col="blue", lty=3)
+ 
  fitted.val.13 <- best_migramod(dataIn = data1, model.rc =model.rc.13, maxite = 5E2, profile = "thirteen")
  lines(data1[,1], model.rc.13$value(fitted.val.13$bestParam,data1), col="green")
 
