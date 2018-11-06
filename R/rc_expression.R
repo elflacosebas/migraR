@@ -1,7 +1,7 @@
 #' Rogers and Castro expressions (Rogers and Castro, 1981)
 #'
 #' Rogers and Castro Expressions for migration schedules.
-#' @param model.name The schedule specification, 'profile' could be seven, nine, eleven or thirteen
+#' @param profile The schedule specification, 'profile' could be seven, nine, eleven or thirteen
 
 rc_expression <-   function(profile = "eleven"){
       switch(profile,

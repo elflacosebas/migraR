@@ -2,7 +2,7 @@
 % Please edit documentation in R/hello.R
 \name{hello}
 \alias{hello}
-\title{wellcome to packagee function}
+\title{Welcome to planet migraR}
 \usage{
 hello()
 }

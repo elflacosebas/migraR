@@ -2,11 +2,17 @@
 % Please edit documentation in R/best_migramod.R
 \name{best_migramod}
 \alias{best_migramod}
-\title{Select best migramod model.}
+\title{Select the best set of parameters based on the MSE optimization}
+
+\description{
+One solution to initial values problem based on the generaton of a random sample with size equals one from uniform apriori distributions with values between 0 and 1 for the initial parameters.
+}
+
 \usage{
 best_migramod(dataIn = dataIn, model.rc, profile = "eleven", maxite = 100,
   epsilon = 1e-05, datasimul = T)
 }
+
 \arguments{
 \item{dataIn}{Standarized migration data set for optimization.}
 
@@ -16,40 +22,56 @@ best_migramod(dataIn = dataIn, model.rc, profile = "eleven", maxite = 100,
 
 \item{maxiter}{Maximum number of iterations for model optimization.}
 }
+
 \value{
 a list with named parameters
 }
-\description{
-One solution to initial values problem based on the generaton of a random sample with size equals one from uniform apriori
-distributions with values between 0 and 1 for the initial parameters.
-}
-\examples{
+
+\example{
+
+# Creating MigraModel Classes based on Rogers and Castro expressions.
+
 require(migraR)
 require(dplyr)
 data("es_asmr")
 data1 <- es_asmr[-c(1,2),c(1,5)]
 colnames(data1) <- c("x","y")
 attach(data1)
-model.rc.13 = MigraModel(
-  name = 'castro_13',
-  expr = rc_expression(profile = "thirteen")
-)
 
 model.rc.7 = MigraModel(
-  name = 'castro_7',
-  expr = rc_expression(profile = "seven")
-)
-model.rc.11 = MigraModel(
-  name = 'castro_11',
-  expr = rc_expression(profile = "eleven")
-)
+   name = 'castro_7',
+   expr = rc_expression(profile = "seven")
+ )
 
-plot(data1, cex=0.1, xlab = 'Age', ylab = 'Standarized Migration Rate')
-fitted.val.11 <- best_migramod(dataIn = data1, model.rc =model.rc.11, maxite = 5E2, profile = "eleven")
-lines(data1[,1], model.rc.11$value(fitted.val.11$bestParam,data1), col="blue", lty=3)
-fitted.val.7 <- best_migramod(dataIn = data1, model.rc =model.rc.7, maxite = 5E2, profile = "seven")
-lines(data1[,1], model.rc.7$value(fitted.val.7$bestParam,data1), col="blue")
-fitted.val.13 <- best_migramod(dataIn = data1, model.rc =model.rc.13, maxite = 5E2, profile = "thirteen")
-lines(data1[,1], model.rc.13$value(fitted.val.13$bestParam,data1), col="green")
-legend("topright",legend = c("seven","eleven","thirteen"),fill = c("red","blue","green"))
-}
+model.rc.9 = MigraModel(
+   name = 'castro_9',
+   expr = rc_expression(profile = "nine")
+ )
+
+ model.rc.11 = MigraModel(
+   name = 'castro_11',
+   expr = rc_expression(profile = "eleven")
+ )
+
+ model.rc.13 = MigraModel(
+   name = 'castro_13',
+   expr = rc_expression(profile = "thirteen")
+ )
+
+# Fitting and Plotting data
+
+ plot(data1, cex=0.1, xlab = 'Age', ylab = 'Standarized Migration Rate')
+
+ fitted.val.7 <- best_migramod(dataIn = data1, model.rc =model.rc.7, maxite = 5E2, profile = "seven")
+ lines(data1[,1], model.rc.7$value(fitted.val.7$bestParam,data1), col="blue")
+
+ fitted.val.9 <- best_migramod(dataIn = data1, model.rc =model.rc.7, maxite = 5E2, profile = "nine")
+ lines(data1[,1], model.rc.9$value(fitted.val.9$bestParam,data1), col="orange")
+
+ fitted.val.11 <- best_migramod(dataIn = data1, model.rc =model.rc.11, maxite = 5E2, profile = "eleven")
+ lines(data1[,1], model.rc.11$value(fitted.val.11$bestParam,data1), col="blue", lty=3)
+
+ fitted.val.13 <- best_migramod(dataIn = data1, model.rc =model.rc.13, maxite = 5E2, profile = "thirteen")
+ lines(data1[,1], model.rc.13$value(fitted.val.13$bestParam,data1), col="green")
+
+ legend("topright",legend = c("seven","orange","eleven","thirteen"),fill = c("red","orange", "blue","green"))

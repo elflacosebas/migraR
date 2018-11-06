@@ -35,9 +35,11 @@ genRandomPar(profile = "seven", ...)
 A list with random values for parameters
 }
 \description{
-Generate 7, 9 or 11 random values for Roger and Castro migration models
+Generate 7, 9, 11 or 13 random values from an a priori uniform distribution for Roger and Castro migration models
 }
 \examples{
 genRandomPar(7)
+genRandomPar(9)
+genRandomPar(11)
 genRandomPar(11)
 }

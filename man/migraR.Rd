@@ -5,16 +5,17 @@
 \alias{migraR}
 \alias{migraR-package}
 \title{migraR: A package for computating models for migration analysis .}
+
 \description{
-The migraR package provides functions for estimate the parameters for Rogers and Castro Models:
-\code{rc.7}, \code{rc.11}, \code{rc.13} like a package \code{migest}.
+The migraR package provides functions for estimate the parameters for Rogers and Castro Model:
+\code{rc.7}, \code{rc.9} \code{rc.11}, \code{rc.13} like a package \code{migest}.
 }
+
 \section{migraR functions}{
 
-The migraR functions were concived for estimate via non-linear optimization, the parameters of the Rogers and Castro
-models wit seven, eleven and thirteen parameters. Besides, the package gives the user the posibility to investigate 
-wich curve fits better using the method provided in the IUSSP manual for the estimation of Rogers and Castro multi 
-exponential model migration schedule.
-(http://demographicestimation.iussp.org/content/multi-exponential-model-migration-schedule).
+The migraR functions were concived for estimate via linear optimization of the logarithm of the standardized age specific migration rate. The equations estimated belong to the Rogers and Castro models with seven, eleven, nine and thirteen parameters. Besides, the package gives the user the posibility to investigate wich curve fits better using the method provided in the IUSSP manual for the estimation of Rogers and Castro multi-exponential model migration schedule. The package can also help to look into the initial values to check whether the influence can be detectable.
+
+Applications are very common in population projections and matematical modelling of migration for behaviour clustering with the persistent regularities and the selectivity in age and sex. The model has four main components (Rogers and Castro, 1981): A single negative curve of the pre-labour force, a left-skewed unimodal curve of the labour force, an almost bell shaped curve of post-labour force. A constant curve c, wich improves the fit of te mathemsatical expression to the observed schedule. The package is intended to follow the guidelines proposed by the IUSSP. Please see: http://demographicestimation.iussp.org/content/multi-exponential-model-migration-schedule).
+
 }
 

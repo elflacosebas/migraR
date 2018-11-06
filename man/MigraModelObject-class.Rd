@@ -9,10 +9,8 @@
 Class built based on Rogers and castro Models.
 }
 \details{
-The Rogers and Castro models where thought to analize the behaviour of the schedule and to parametrize it. 
-The use is very used in population projections and matematical modelling of migration for behaviour clustering
-with the persistent regularities and the selectivity in age and sex. The model has four main components (Rogers and Castro, 1981): 
-A single negative curve of the pre-labour force, a left-skewed unimodal curve of the labour force, an almost bell shaped curve of post-labour force.
-A constant curve c, wich improves the fit of te mathemsatical expression to the observed schedule.
+
+The MigraModelObjetct-class is the function that allows to create a new class of models. There are already four types (7, 9, 11 and 13 parameters). If a new model (p.e. with the student peak) need to be creted this function helps to set the model as class with its attributes (i.e. return simulation results and function values).
+
 }
 

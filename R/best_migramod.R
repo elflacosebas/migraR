@@ -115,7 +115,7 @@ best_migramod <- function(dataIn=dataIn, model.rc, profile="eleven",maxite=100, 
 
 
   colnames(valSim) <- c(paste(values.names[params.n$subzero],'_0',sep =''), paste(values.names[params.n$hat],'_hat',sep ='')
-                        ,'optimResult',"message", 'MAPE' )
+                        ,'optimResult',"message", 'MAPE', 'RCuad' )
     valSim <- as.data.frame(valSim)
     dataSimul <- valSim %>% mutate(message=as.character(message)) %>%
          mutate_if( is.factor, .funs = function(x)as.numeric(as.character(x)))
@@ -123,18 +123,21 @@ best_migramod <- function(dataIn=dataIn, model.rc, profile="eleven",maxite=100, 
    bestPar <- dataSimul[which.min(dataSimul$optimResult),params.n$hat]
    bestParam_0 <- dataSimul[which.min(dataSimul$optimResult),params.n$subzero]
 
-        bestPar.mape <- dataSimul[which.min(dataSimul$MAPE),params.n$hat]
-    bestOptimRes <- dataSimul[which.min(dataSimul$optimResult), "optimResult"]
-    bestMAPE <- dataSimul[which.min(dataSimul$MAPE),"MAPE"]
-        names(bestPar) <- names(param_0)
-        names(bestPar.mape) <- names(param_0)
-        bestPar <- sapply(bestPar,as.list)
-        names(bestPar) <- names(param_0)
+   bestPar.mape <- dataSimul[which.min(dataSimul$MAPE),params.n$hat]
+   bestOptimRes <- dataSimul[which.min(dataSimul$optimResult), "optimResult"]
+   bestMAPE <- dataSimul[which.min(dataSimul$MAPE),"MAPE"]
+   bestRcuad <- dataSimul[which.min(dataSimul$RCuad),"RCuad"]
+
+   names(bestPar) <- names(param_0)
+   names(bestPar.mape) <- names(param_0)
+   bestPar <- sapply(bestPar,as.list)
+   names(bestPar) <- names(param_0)
 
         return(list(bestParam=bestPar
                     ,bestParam_0= bestParam_0
                     ,bestOptimRes=bestOptimRes
                     ,bestMAPE=bestMAPE
+                    ,bestRcuad=bestRcuad
                     ,dataSimul=dataSimul))
 
         }
