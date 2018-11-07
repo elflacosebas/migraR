@@ -34,7 +34,8 @@ install.packages('dplyr')
 ### Installing
 
 Call the packages with `library(dplyr)` and `library(devtools)`
-then type `install_github("elflacosebas/migraR")`. 
+then type `install_github("elflacosebas/migraR")` 
+
 
 ###Example
 
@@ -111,4 +112,4 @@ See also the list of [contributors](https://github.com/your/project/contributors
 
 ## Acknowledgments
 
-* to Joaquín Recaño Valverde (http://ced.uab.es/es/directori/joaquim-recano-valverde/), who inspires the work. 
+* to Joaquín Recaño Valverde (http://ced.uab.es/es/directori/joaquim-recano-valverde/), who inspires this work. 
