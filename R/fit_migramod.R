@@ -40,8 +40,7 @@ fit_migramod <- function(dataIn=dataIn, parameters_0, model.rc){
 
       mape <- (100/dim(dataIn)[1]) * (sum(abs( model.rc$value(fit1$par,dataIn) -dataIn$y)/(dataIn$y)))
       rcuad <- sum((model.rc$value(fit1$par,dataIn)-mean(dataIn$y))^2)/sum((dataIn$y-mean(dataIn$y))^2)
-      rcuadadj <- (1 - ((nrow(dataIn)-1)/(nrow(dataIn)-length(parameters_0)-1)))*(1-rcuad)
-      values <- c(parameters_0, fit1$par, fit1$objective, fit1$message, mape, rcuadadj)
+      values <- c(parameters_0, fit1$par, fit1$objective, fit1$message, mape, rcuad)
       return(list(values=values, model.rc$value(p=fit1$par,data) ))
 
 
