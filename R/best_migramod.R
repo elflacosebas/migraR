@@ -134,7 +134,7 @@ best_migramod <- function(dataIn=dataIn, model.rc, profile="eleven",maxite=100, 
    bestPar.mape <- dataSimul[which.min(dataSimul$MAPE),params.n$hat]
    bestOptimRes <- dataSimul[which.min(dataSimul$optimResult), "optimResult"]
    bestMAPE <- dataSimul[which.min(dataSimul$MAPE),"MAPE"]
-   bestRcuad <- dataSimul[which.min(dataSimul$RCuad),"RCuad"]
+   bestRcuad <- dataSimul[which.max(dataSimul$RCuad),"RCuad"]
 
    names(bestPar) <- names(param_0)
    names(bestPar.mape) <- names(param_0)

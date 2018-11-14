@@ -19,3 +19,7 @@ fit_migramod(dataIn = dataIn, parameters_0, model.rc)
 
 \item{model.rc}{Object of class migramod with usually a Rogers and Castro model expression.}
 }
+
+\example{
+See complete example in best_migramod function.
+}

@@ -33,9 +33,7 @@ install.packages('dplyr')
 
 ### Installing
 
-Call the packages with `library(dplyr)` and `library(devtools)`
-then type `install_github("elflacosebas/migraR")` 
-
+Call the packages with `library(dplyr)` and `library(devtools)` then type `install_github("elflacosebas/migraR")` 
 
 ###Example
 

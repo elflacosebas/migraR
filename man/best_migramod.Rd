@@ -75,3 +75,5 @@ model.rc.9 = MigraModel(
  lines(data1[,1], model.rc.13$value(fitted.val.13$bestParam,data1), col="green")
 
  legend("topright",legend = c("seven","orange","eleven","thirteen"),fill = c("red","orange", "blue","green"))
+
+ }
