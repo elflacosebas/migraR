@@ -5,7 +5,7 @@ R package for migration analysis focused now on the Rogers and Castro multi expo
 This package was created on GitHub by J. Sebastian Ruiz-Santacruz and Jackson Garcés between February and June 2018.
 Cite as: 
 
-Ruiz-Santacruz and Garcés, 2018. migraR prototype package for Rogers and Castro models. Retrieved: dd/mm/aa
+Ruiz-Santacruz and Garcés, 2018. migraR. Prototype package for adjusting Rogers and Castro models. Retrieved: dd/mm/aa
 
 **Description**
 
