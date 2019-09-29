@@ -113,9 +113,9 @@ We use [SemVer](http://semver.org/) for versioning. For the versions available, 
 
 ## Authors
 
-* **J. Sebastian Ruiz-Santacruz** - *Initial and Demographic work* - [PurpleBooth](https://github.com/elflacosebas)
+* **J. Sebastian Ruiz-Santacruz** - *Initial Demographic and statistical work* - [PurpleBooth](https://github.com/elflacosebas)
 
-* **Jackson Garcés** - *Packaging work* - [PurpleBooth](https://github.com/jackowacko)
+* **Jackson Garcés** - *Packaging work and statistical support* - [PurpleBooth](https://github.com/jackowacko)
 
 See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
 
