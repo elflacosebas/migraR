@@ -72,21 +72,16 @@ model.rc.9 = MigraModel(
  )
 
 # Fitting and Plotting data
+ fitted.val.7 <- best_migramod(dataIn = data1, model.rc =model.rc.7, maxite = 5E2, profile = "seven")
+ fitted.val.9 <- best_migramod(dataIn = data1, model.rc =model.rc.9, maxite = 5E2, profile = "nine")
+ fitted.val.11 <- best_migramod(dataIn = data1, model.rc =model.rc.11, maxite = 5E2, profile = "eleven")
+ fitted.val.13 <- best_migramod(dataIn = data1, model.rc =model.rc.13, maxite = 5E2, profile = "thirteen")
 
  plot(data1, cex=0.1, xlab = 'Age', ylab = 'Standarized Migration Rate')
-
- fitted.val.7 <- best_migramod(dataIn = data1, model.rc =model.rc.7, maxite = 5E2, profile = "seven")
  lines(data1[,1], model.rc.7$value(fitted.val.7$bestParam,data1), col="blue")
-
- fitted.val.9 <- best_migramod(dataIn = data1, model.rc =model.rc.7, maxite = 5E2, profile = "nine")
  lines(data1[,1], model.rc.9$value(fitted.val.9$bestParam,data1), col="orange")
-
- fitted.val.11 <- best_migramod(dataIn = data1, model.rc =model.rc.11, maxite = 5E2, profile = "eleven")
  lines(data1[,1], model.rc.11$value(fitted.val.11$bestParam,data1), col="blue", lty=3)
- 
- fitted.val.13 <- best_migramod(dataIn = data1, model.rc =model.rc.13, maxite = 5E2, profile = "thirteen")
  lines(data1[,1], model.rc.13$value(fitted.val.13$bestParam,data1), col="green")
-
  legend("topright",legend = c("seven","orange","eleven","thirteen"),fill = c("red","orange", "blue","green"))
 
 ```
@@ -101,9 +96,9 @@ We use [SemVer](http://semver.org/) for versioning. For the versions available, 
 
 ## Authors
 
-* **J. Sebastian Ruiz-Santacruz** - *Initial work* - [PurpleBooth](https://github.com/elflacosebas)
+* **J. Sebastian Ruiz-Santacruz** - *Initial work (Ath and Ctb)* - [PurpleBooth](https://github.com/elflacosebas)
 
-* **Jackson Garcés** - *Initial work* - [PurpleBooth](https://github.com/jackowacko)
+* **Jackson Garcés** - *Initial work (Ctb)* - [PurpleBooth](https://github.com/jackowacko)
 
 See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
 

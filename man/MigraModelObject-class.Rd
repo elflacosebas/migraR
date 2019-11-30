@@ -9,8 +9,8 @@
 Class built based on Rogers and castro Models.
 }
 \details{
-
-The MigraModelObjetct-class is the function that allows to create a new class of models. There are already four types (7, 9, 11 and 13 parameters). If a new model (p.e. with the student peak) need to be creted this function helps to set the model as class with its attributes (i.e. return simulation results and function values).
-
+The migramodel class is necessary to construct the optimization. The class incorpores
+the methods as the calculation of the Jacobian, the gradient and the Hessian matrix.
+This class is used to evaluate a given rc_expression with an initial tupla of values.
 }
 

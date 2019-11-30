@@ -3,15 +3,11 @@
 \name{genRandomPar}
 \alias{genRandomPar}
 \title{Generator function for initial values in Rogers and Castro models}
-
-\description{
-Generate 7, 9, 11 or 13 random values from an a priori uniform distribution for Roger and Castro migration models
-}
-
 \usage{
-genRandomPar(profile = "seven")
+genRandomPar(profile = "seven", ...)
 }
 \arguments{
+\item{...}{Aditional argumemnts given to function}
 
 \item{a1}{First level parameter.}
 
@@ -35,14 +31,13 @@ genRandomPar(profile = "seven")
 
 \item{lambda_3}{third profile parameter: rate of descent of post-labour force component.}
 }
-
 \value{
 A list with random values for parameters
 }
-
+\description{
+Generate 7, 9, 11 and 13 random values for Roger and Castro migration models
+}
 \examples{
 genRandomPar(7)
-genRandomPar(9)
-genRandomPar(11)
 genRandomPar(11)
 }

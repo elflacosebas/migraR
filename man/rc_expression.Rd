@@ -3,19 +3,12 @@
 \name{rc_expression}
 \alias{rc_expression}
 \title{Rogers and Castro expressions (Rogers and Castro, 1981)}
-
-\description{
-Specification of the model expression created.
-}
-
 \usage{
-rc_expression(profile = "seven")
-rc_expression(profile = "nine")
 rc_expression(profile = "eleven")
-rc_expression(profile = "thirteen")
 }
-
 \arguments{
-\item{profile}{Name given by the number of parameters of the migration model}
+\item{profile}{The schedule specification, 'profile' could be seven, nine, eleven or thirteen}
 }
-
+\description{
+Rogers and Castro Expressions for migration schedules.
+}

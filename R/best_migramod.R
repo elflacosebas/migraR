@@ -59,8 +59,8 @@
 
 #'legend("topright",legend = c("seven","orange","eleven","thirteen"),fill = c("red","orange", "blue","green"))
 
-
 best_migramod <- function(dataIn=dataIn, model.rc, profile="eleven",maxite=100, epsilon = 1E-5, datasimul=T){
+  attach(dataIn)
   param_0 <- genRandomPar(profile=profile)
   colnames(dataIn) <- c("x","y")
   x <- dataIn[,1]
@@ -134,7 +134,7 @@ best_migramod <- function(dataIn=dataIn, model.rc, profile="eleven",maxite=100, 
    bestPar.mape <- dataSimul[which.min(dataSimul$MAPE),params.n$hat]
    bestOptimRes <- dataSimul[which.min(dataSimul$optimResult), "optimResult"]
    bestMAPE <- dataSimul[which.min(dataSimul$MAPE),"MAPE"]
-   bestRcuad <- dataSimul[which.max(dataSimul$RCuad),"RCuad"]
+   bestRcuad <- dataSimul[which.min(dataSimul$MAPE),"RCuad"]
 
    names(bestPar) <- names(param_0)
    names(bestPar.mape) <- names(param_0)
@@ -147,7 +147,7 @@ best_migramod <- function(dataIn=dataIn, model.rc, profile="eleven",maxite=100, 
                     ,bestMAPE=bestMAPE
                     ,bestRcuad=bestRcuad
                     ,dataSimul=dataSimul))
-
+  detach(dataIn)
         }
 
 

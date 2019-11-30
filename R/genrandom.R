@@ -21,11 +21,11 @@
 
 
 genRandomPar <- function(profile = "seven",  ...){
-  param1 <- list(a1=c(0,0.9),alpha1=c(0,0.9), a2=c(0,0.9)
-                , alpha2=c(0,0.9), mu2=c(1,90), lambda2=c(0,0.9)
-                , a3=c(0,0.9), alpha3=c(0,0.9), mu3=c(1,90), lambda3=c(0,0.9)
-                ,a4=c(0,0.9), lambda4=c(0,0.9)
-                ,c1=c(0,0.9))
+  param1 <- list(a1=c(0,0.99999),alpha1=c(0,0.99999), a2=c(0,0.99999)
+                , alpha2=c(0,0.99999), mu2=c(1,99), lambda2=c(0,0.99999)
+                , a3=c(0,0.99999), alpha3=c(0,0.99999), mu3=c(1,99), lambda3=c(0,0.99999)
+                ,a4=c(0,0.99999), lambda4=c(0,0.99999)
+                ,c1=c(0,0.99999))
   param2 <- list()
   param <- c(param1[setdiff(names(param1), names(param2))]
              ,param2)
