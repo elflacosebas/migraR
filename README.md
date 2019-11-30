@@ -1,8 +1,11 @@
 
 # migraR
-R package for migration analysis focused now on the Rogers and Castro multi exponential model and the estimation of the parameters using a bayesian simulation based on uniform a priori distributions for each parameter between 0 and 1. 
+R package for migration analysis focused now on the Rogers and Castro multi exponential model and the estimation of the parameters using a bayesian simulation based on uniform a priori distributions for each parameter between 0 and 1, and 0 to 100 in the case of the location parameters corresponding to ages in the migration pattern. 
 
-This package was created by J. Sebastian Ruiz-Santacruz and Jackson Garcés in 2018.
+This package was created on GitHub by J. Sebastian Ruiz-Santacruz and Jackson Garcés between February and June 2018.
+Cite as: 
+
+Ruiz-Santacruz and Garcés, 2018. migraR. Prototype package for adjusting Rogers and Castro models. Retrieved: dd/mm/aa
 
 **Description**
 
@@ -21,6 +24,15 @@ Package under contiuous changes! place your bugs on the github tab issues :) :ro
 ## Getting Started
 
 The package should be downloaded using devtools::install_github("elflacosebas/migraR"). Migration rates from Spain were calculated using the census 2011. The fucntion best_migramod has the complete example. There are probably some bugs that we pledge you can report to us using issues in github. 
+
+### Application of the method 
+
+You can download the original working paper in Spanish please click here: 
+https://ddd.uab.cat/record/212615
+
+A traslation in English please go to: 
+https://www.researchgate.net/publication/335928518_Estimation_of_migration_schedules_by_simulating_the_initial_values_in_the_parameter_optimizations_of_multi-exponential_migration_models_an_application_to_intra-Latin_American_international_migration
+
 
 ### Prerequisites
 
@@ -96,9 +108,15 @@ We use [SemVer](http://semver.org/) for versioning. For the versions available, 
 
 ## Authors
 
+<<<<<<< HEAD
 * **J. Sebastian Ruiz-Santacruz** - *Initial work (Ath and Ctb)* - [PurpleBooth](https://github.com/elflacosebas)
 
 * **Jackson Garcés** - *Initial work (Ctb)* - [PurpleBooth](https://github.com/jackowacko)
+=======
+* **J. Sebastian Ruiz-Santacruz** - *Initial Demographic and statistical work* - [PurpleBooth](https://github.com/elflacosebas)
+
+* **Jackson Garcés** - *Packaging work and statistical support* - [PurpleBooth](https://github.com/jackowacko)
+>>>>>>> fa095bfa2163760623c547d5f67609e5b1b7fe14
 
 See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
 
