@@ -5,7 +5,7 @@ best_migramod <- function(dataIn=dataIn, model.rc, profile="eleven",maxite=100, 
   colnames(dataIn) <- c("x","y")
   x <- dataIn[,1]
   y <- dataIn[,2]
-  valSim <- fit_migramod(dataIn = dataIn, parameters_0=param_0, model.rc=model.rc )$values
+  valSim <- fit_migramod(data_In = dataIn, parameters_0=param_0, model.rc=model.rc )$values
   values.names <- names(valSim)
 
   opti.pos <- switch (profile,
@@ -22,13 +22,13 @@ best_migramod <- function(dataIn=dataIn, model.rc, profile="eleven",maxite=100, 
  # for(i in 1:iter){
     param_0 <- genRandomPar(profile=profile)
     if(datasimul){
-      valSim <- rbind(valSim,fit_migramod(dataIn = dataIn, parameters_0=param_0, model.rc )$values)
+      valSim <- rbind(valSim,fit_migramod(data_In = dataIn, parameters_0=param_0, model.rc )$values)
       opti <- unlist(valSim[nrow(valSim),opti.pos])
       counter =counter + 1
       setTxtProgressBar(pb, counter)
     }else {
 
-      valSim_b  <- fit_migramod(dataIn = dataIn, parameters_0=param_0, model.rc )$values
+      valSim_b  <- fit_migramod(data_In = dataIn, parameters_0=param_0, model.rc )$values
       opti <- unlist(valSim_b[opti.pos])
       if(counter == 0){
         valSim <- valSim_b
