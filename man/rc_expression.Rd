@@ -10,5 +10,9 @@ rc_expression(profile = "eleven")
 \item{profile}{The schedule specification, 'profile' could be seven, nine, eleven or thirteen}
 }
 \description{
-Rogers and Castro Expressions for migration schedules.
+Rogers and Castro Expressions for migration schedules. Each expression belongs to one of the equations proposed.
+\url{http://en.wikipedia.org/wiki/Empty_sum} for more details.
 }
+
+
+
