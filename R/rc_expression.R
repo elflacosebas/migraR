@@ -1,7 +1,8 @@
-#' Rogers and Castro expressions (Rogers and Castro, 1981)
-#'
-#' Rogers and Castro Expressions for migration schedules.
-#' @param profile The schedule specification, 'profile' could be seven, nine, eleven or thirteen
+# Rogers and Castro expressions (Rogers and Castro, 1981)
+#
+# Rogers and Castro Expressions for migration schedules.
+# The schedule specification, 'profile' could be seven, nine, eleven or thirteen.
+# The function can be used to be modified to build the own profile.
 
 rc_expression <-   function(profile = "eleven"){
       switch(profile,
