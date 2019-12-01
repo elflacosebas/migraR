@@ -7,7 +7,7 @@
 #'@param model.rc Object of class migramod with usually a Rogers and Castro model expression.
 
 
-fit_migramod <- function(data_In=data_In, parameters_0, model.rc){
+fit_migramod <- function(data_In=dataIn, parameters_0, model.rc){
   colnames(data_In) <- c("x","y")
   x <- data_In$x
   y <- data_In$y
@@ -32,7 +32,7 @@ fit_migramod <- function(data_In=data_In, parameters_0, model.rc){
   if(any(grepl("Error?", fit1))){
     mape <- "-1"
     values <- c(parameters_0, fit1, fit1, fit1, mape)
-    return(list(values=values, model.rc$value(p=parameters_0, data) ))
+    return(list(values=values, model.rc$value(p=parameters_0, data = data_In) ))
 
   }else{
 
@@ -46,3 +46,4 @@ fit_migramod <- function(data_In=data_In, parameters_0, model.rc){
 
 
 }
+
