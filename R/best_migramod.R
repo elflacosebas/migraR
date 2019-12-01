@@ -7,7 +7,7 @@ best_migramod <- function(dataIn=dataIn, model.rc, profile="eleven",maxite=100, 
   colnames(dataIn) <- c("x","y")
   x <- dataIn[,1]
   y <- dataIn[,2]
-  valSim <- fit_migramod(dataIn = dataIn, parameters_0=param_0, model.rc=model.rc )$values
+  valSim <- fit_migramod(data_In = dataIn, parameters_0=param_0, model.rc=model.rc )$values
   values.names <- names(valSim)
 
   opti.pos <- switch (profile,
@@ -20,8 +20,8 @@ best_migramod <- function(dataIn=dataIn, model.rc, profile="eleven",maxite=100, 
   opti <- unlist(valSim[opti.pos])
   counter <-  1
   pb <- txtProgressBar(counter, maxite,style = 3)
-  while (opti > epsilon  &&  counter < maxite ){
- # for(i in 1:iter){
+  while (opti > epsilon  &&  counter < maxite){
+
     param_0 <- genRandomPar(profile=profile)
     if(datasimul){
       valSim <- rbind(valSim,fit_migramod(data_In = dataIn, parameters_0=param_0, model.rc )$values)
