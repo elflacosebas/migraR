@@ -4,15 +4,16 @@
 \alias{fit_migramod}
 \title{Estimate a migramod model.}
 \usage{
-fit_migramod(dataIn = dataIn, parameters_0, model.rc)
+fit_migramod(data_In = dataIn, parameters_0, model.rc)
 }
 \arguments{
-\item{dataIn}{Empirical (out/in) migration rates for estimation.}
-
 \item{model.rc}{Object of class migramod with usually a Rogers and Castro model expression.}
+
+\item{dataIn}{Empirical (out/in) migration rates for estimation.}
 
 \item{paramaters_0}{Set of initial parameters for selected Rogers and Castro model equation.}
 }
 \description{
-Estimate a migramod model via linear optimization
+Estimate a migramod model via linear optimization. The function takes out the tuples that
+does not have gradient.
 }

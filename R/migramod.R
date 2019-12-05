@@ -17,9 +17,9 @@ MigraModel <- setRefClass('MigraModelObject',
                             },
                             jacobian = function(p, data){
                               J = t(sapply(all.vars(.self$expr), function(v, p, data){
-                                # if(v != "c1"){
+
                                 eval(D(.self$expr, v), c(as.list(p), as.list(data)))
-                                # } else { rep(1, nrow(data))}
+
                               }, p=p, data=data))
 
                               return(J[names(p),,drop=F])

@@ -1,7 +1,7 @@
 #best_migramod function, help to simulate a maximum o n iterations for the adjustment of the
 #model. It uses fit_migramod function to do it.
 
-best_migramod <- function(dataIn=dataIn, model.rc, profile="eleven",maxite=100, epsilon = 1E-5, datasimul=T){
+best_migramod <- function(dataIn, model.rc, profile="eleven",maxite=100, epsilon = 1E-5, datasimul=T){
 
   param_0 <- genRandomPar(profile=profile)
   colnames(dataIn) <- c("x","y")

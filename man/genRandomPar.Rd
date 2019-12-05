@@ -38,6 +38,8 @@ A list with random values for parameters
 Generate 7, 9, 11 and 13 random values for Roger and Castro migration models
 }
 \examples{
-genRandomPar(7)
-genRandomPar(11)
+genRandomPar(profile = 'seven')
+genRandomPar(profile = 'nine')
+genRandomPar(profile = 'eleven')
+genRandomPar(profile = 'thirteen')
 }
