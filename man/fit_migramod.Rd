@@ -16,4 +16,15 @@ fit_migramod(data_In = dataIn, parameters_0, model.rc)
 \description{
 Estimate a migramod model via linear optimization. The function takes out the tuples that
 does not have gradient.
+
+\examples{
+require(migraR)
+require(dplyr)
+data("es_asmr")
+data1 <- es_asmr[-c(1,2),c(1,5)]
+colnames(data1) <- c("x","y") #this must be done before using fit_migramod
+attach(data1) #this must be done before using fit_migramod
+fit_migramod(data1, parameters_0, model.rc.7)
+}
+
 }

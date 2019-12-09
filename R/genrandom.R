@@ -1,24 +1,5 @@
-#' Generator function for initial values in Rogers and Castro models
-#'
-#' Generate 7, 9, 11 and 13 random values for Roger and Castro migration models
-#' @param a1 First level parameter.
-#' @param a2 Second level parameter.
-#' @param a3 Third first level parameter.
-#' @param c Fourth level parameter or constant.
-#' @param alpha_1 first profile parameter: rate of descent of prelabour force component.
-#' @param mu2 First position parameter: mean age at highest peak.
-#' @param alpha_2 third profile parameter: rate of ascent of labour force component.
-#' @param lambda_2 third profile parameter: rate of descent of labour force component.
-#' @param mu_3 Second position parameter: age at retiremen peak.
-#' @param alpha_3 third profile parameter: rate of ascent of post-labour force component.
-#' @param lambda_3 third profile parameter: rate of descent of post-labour force component.
-#'
-#' @param ... Aditional argumemnts given to function
-#' @return A list with random values for parameters
-#' @examples
-#' genRandomPar(7)
-#' genRandomPar(11)
 
+# This function generates random parameters as initial values.
 
 genRandomPar <- function(profile = "seven",  ...){
   param1 <- list(a1=c(0,0.99999),alpha1=c(0,0.99999), a2=c(0,0.99999)

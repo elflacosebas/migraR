@@ -1,7 +1,5 @@
-# Estimate a migramod model.
-#
+
 # Estimate a migramod model via linear optimization
-#
 # dataIn Empirical (out/in) migration rates for estimation.
 # paramaters_0 Set of initial parameters for selected Rogers and Castro model equation.
 # model.rc Object of class migramod with usually a Rogers and Castro model expression.

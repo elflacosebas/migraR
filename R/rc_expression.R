@@ -1,6 +1,4 @@
-# Rogers and Castro expressions (Rogers and Castro, 1981)
-#
-# Rogers and Castro Expressions for migration schedules.
+# Rogers and Castro expressions for migration schedules(Rogers and Castro, 1981)
 # The schedule specification, 'profile' could be seven, nine, eleven or thirteen.
 # The function can be used to be modified to build the own profile.
 
