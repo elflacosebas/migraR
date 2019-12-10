@@ -103,8 +103,6 @@ legend = c(paste("(7)", "MAPE:", round(as.numeric(fitted.val.7$bestMAPE),2), "R�
            col = c("red",'orange',"blue","darkgreen"), lty = c(2,6,3,5))
 
 
-
-
 ```
 
 ## Contributing
@@ -117,18 +115,9 @@ We use [SemVer](http://semver.org/) for versioning. For the versions available, 
 
 ## Authors
 
-<<<<<<< HEAD
-* **J. Sebastian Ruiz-Santacruz** - *Initial work (Ath and Ctb)* - [PurpleBooth](https://github.com/elflacosebas)
-
-* **Jackson Garcés** - *Initial work (Ctb)* - [PurpleBooth](https://github.com/jackowacko)
-=======
 * **J. Sebastian Ruiz-Santacruz** - *Initial Demographic and statistical work* - [PurpleBooth](https://github.com/elflacosebas)
 
 * **Jackson Garcés** - *Packaging work and statistical support* - [PurpleBooth](https://github.com/jackowacko)
->>>>>>> fa095bfa2163760623c547d5f67609e5b1b7fe14
-
-See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
-
 
 ## Acknowledgments
 
