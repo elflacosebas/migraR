@@ -3,7 +3,7 @@ Type: Package
 Title: Rogers and Castro Migrarion Models Schedule Otpimization
 Version: 0.1.2
 Author: J. Sebastian Ruiz-Santacruz / Jackson Garcés Hernández
-Maintainer: J. Sebastian Ruiz-Santacruz <sruiz@ced.uab.es>
+Maintainer: J. Sebastian Ruiz-Santacruz <sebastianruizsantacruz@gmail.com>
 Description: Opimization Algorithms for Model Migration Schedules.
 License: MIT
 Encoding: UTF-8
