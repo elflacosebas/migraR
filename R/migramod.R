@@ -1,10 +1,12 @@
 #' Migration Rate Models Class.
 #'
-#'Class built based on Rogers and castro Models.
+#' The class incorpores the methods as the calculation of the Jacobian, the gradient and the Hessian matrix.
+#' This class is used to evaluate a given rc_expression with an initial tupla of values.
 #'
-#'The migramodel class is necessary to construct the optimization. The class incorpores
-#'the methods as the calculation of the Jacobian, the gradient and the Hessian matrix.
-#'This class is used to evaluate a given rc_expression with an initial tupla of values.
+#' @slot Migramodel The migramodel class is necessary to construct the optimization.
+#' @param name Name to the model that will be optimized
+#' @param expr Rogers and Castro expression comming from rc_expression
+
 
 MigraModel <- setRefClass('MigraModelObject',
                           fields = list(

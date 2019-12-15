@@ -2,29 +2,30 @@
 % Please edit documentation in R/fit_migramod.R
 \name{fit_migramod}
 \alias{fit_migramod}
-\title{Estimate a migramod model.}
+\title{Estimate a migramod model via linear optimization}
 \usage{
-fit_migramod(data_In = dataIn, parameters_0, model.rc)
+fit_migramod (data_In = dataIn, parameters_0, model.rc)
 }
 \arguments{
+\item{data_In}{Empirical (out/in) migration rates for estimation.}
+
+\item{parameters_0}{Set of initial parameters for selected Rogers and Castro model equation.}
+
 \item{model.rc}{Object of class migramod with usually a Rogers and Castro model expression.}
-
-\item{dataIn}{Empirical (out/in) migration rates for estimation.}
-
-\item{paramaters_0}{Set of initial parameters for selected Rogers and Castro model equation.}
+}
+\value{
+A list of values caluculated in the minimization as OptimResult, R squared or MAPE.
 }
 \description{
-Estimate a migramod model via linear optimization. The function takes out the tuples that
-does not have gradient.
-
-\examples{
-require(migraR)
-require(dplyr)
-data("es_asmr")
-data1 <- es_asmr[-c(1,2),c(1,5)]
-colnames(data1) <- c("x","y") #this must be done before using fit_migramod
-attach(data1) #this must be done before using fit_migramod
-fit_migramod(data1, parameters_0, model.rc.7)
+Estimate a migramod model via linear optimization
 }
-
+\examples{
+\dontrun{
+param0 <- genRandomPar(profile='seven')
+model.rc = MigraModel(
+  name = 'castro_7',
+  expr = rc_expression(profile = "seven")
+)
+fit_migramod(data_In, param0, model.rc)
+}
 }

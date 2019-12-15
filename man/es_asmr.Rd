@@ -4,16 +4,18 @@
 \name{es_asmr}
 \alias{es_asmr}
 \title{Spanish age specific migration rate data}
-\format{A \code{data.frame} with 7 columns with \code{age} \code{male.foreign} and \code{foreing.f} for foreing rates males and females.
- The \code{intercounties.m} and \code{intercounties.f}, the last two \code{intercity.m} and \code{intercity.m}}
+\format{A \code{data.frame} with 7 columns as follows:
+\describe{
+  \item{Age}{Specific age group}
+  \item{male.foreign}{Age specific out migration rates abroad Spain for male}
+  \item{female.foreign}{Age specific out migration rates abroad Spain for female}
+}}
 \usage{
-data(es_asrm)
+es_asmr
 }
 \description{
 Internal and International migration rates by sigle age and sex for Spain.
-Those rates are calculated with using the data form the Spanish Statistical Institute (INE).
+Rates calculated with using the data (migrants and population) form the Spanish Statistical Institute (INE).
 }
+\keyword{Migration}
 \keyword{Spanish}
-\keyword{dataset}
-\keyword{migration}
-\keyword{of}

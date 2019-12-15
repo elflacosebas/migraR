@@ -6,10 +6,13 @@
 The schedule specification, 'profile' could be seven, nine, eleven or thirteen.
 The function can be used to be modified to build the own profile.}
 \usage{
-rc_expression(profile = "eleven")
+rc_expression(profile = 'seven')
 }
 \arguments{
 \item{profile}{Expression that fix the number of parameters has to have the equation to optimize}
+}
+\value{
+a list of simulated initial parameters
 }
 \description{
 Rogers and Castro expressions for migration schedules(Rogers and Castro, 1981)

@@ -1,7 +1,20 @@
-
-# This function generates random parameters as initial values.
-
-genRandomPar <- function(profile = "seven",  ...){
+#' Generator function for initial values in Rogers and Castro models
+#'
+#' Generate 7, 9, 11 and 13 random values for Roger and Castro migration models.
+#'
+#' @param profile Number of parameters for the model that will be optimized.
+#' @usage genRandomPar(profile = "seven")
+#' @return A list with random values for parameters
+#' @examples
+#' \dontrun{
+#' genRandomPar(profile = "seven")
+#' genRandomPar(profile = "nine")
+#' genRandomPar(profile = "eleven")
+#' genRandomPar(profile = "thirteen")
+#' }
+#'
+#'
+genRandomPar <- function(profile = "seven"){
   param1 <- list(a1=c(0,0.99999),alpha1=c(0,0.99999), a2=c(0,0.99999)
                 , alpha2=c(0,0.99999), mu2=c(1,99), lambda2=c(0,0.99999)
                 , a3=c(0,0.99999), alpha3=c(0,0.99999), mu3=c(1,99), lambda3=c(0,0.99999)
