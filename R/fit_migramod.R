@@ -5,6 +5,7 @@
 #' @param model.rc Object of class migramod with usually a Rogers and Castro model expression.
 #' @usage fit_migramod (data_In = dataIn, parameters_0, model.rc)
 #' @return A list of values caluculated in the minimization as OptimResult, R squared or MAPE.
+#' @importFrom stats nlminb
 #' @examples
 #' \dontrun{
 #' param0 <- genRandomPar(profile='seven')

@@ -12,6 +12,8 @@
 #'@return a list with named parameters
 #'@usage best_migramod(dataIn, model.rc, profile = "eleven",
 #'       maxite = 100, epsilon = 1e-05, datasimul = T)
+#'@importFrom dplyr mutate
+#'@export
 #'
 #'@examples
 #'\dontrun{
