@@ -7,7 +7,6 @@
 #' @param name Name to the model that will be optimized
 #' @param expr Rogers and Castro expression comming from rc_expression
 
-
 MigraModel <- setRefClass('MigraModelObject',
                           fields = list(
                             name = 'character',
