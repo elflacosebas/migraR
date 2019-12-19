@@ -4,10 +4,10 @@
 \alias{fit_migramod}
 \title{Estimate a migramod model via linear optimization}
 \usage{
-fit_migramod (data_In = dataIn, parameters_0, model.rc)
+fit_migramod (dataIn, parameters_0, model.rc)
 }
 \arguments{
-\item{data_In}{Empirical (out/in) migration rates for estimation.}
+\item{dataIn}{Empirical (out/in) migration rates for estimation.}
 
 \item{parameters_0}{Set of initial parameters for selected Rogers and Castro model equation.}
 
@@ -26,6 +26,6 @@ model.rc = MigraModel(
   name = 'castro_7',
   expr = rc_expression(profile = "seven")
 )
-fit_migramod(data_In, param0, model.rc)
+fit_migramod(dataIn, param0, model.rc)
 }
 }

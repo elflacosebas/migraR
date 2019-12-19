@@ -10,9 +10,13 @@
 #'@param epsilon Tolerance in which the difference between the Mean Squared Error that will finish the algorithm.
 #'@param datasimul Table with the different simulations and values of the parameters estimated.
 #'@return a list with named parameters
-#'@usage best_migramod(dataIn, model.rc, profile = "eleven",
+#'@usage best_migramod(dataIn = dataIn, model.rc, profile = "eleven",
 #'       maxite = 100, epsilon = 1e-05, datasimul = T)
 #'@importFrom dplyr mutate
+#'@importFrom dplyr mutate_if
+#'@importFrom dplyr %>%
+#'@importFrom utils txtProgressBar
+#'@importFrom utils setTxtProgressBar
 #'@export
 #'
 #'@examples
@@ -84,13 +88,13 @@
 #'                  "R²:", round(as.numeric(fitted.val.13$bestRcuad),3))),
 #'                  col = c("red",'orange',"blue","darkgreen"), lty = c(2,6,3,5))
 #'}
-best_migramod <- function(dataIn, model.rc, profile="eleven",maxite=100, epsilon = 1E-5, datasimul=T){
+best_migramod <- function(dataIn = dataIn, model.rc, profile="eleven",maxite=100, epsilon = 1E-5, datasimul=T){
 
   param_0 <- genRandomPar(profile=profile)
   colnames(dataIn) <- c("x","y")
   x <- dataIn[,1]
   y <- dataIn[,2]
-  valSim <- fit_migramod(data_In = dataIn, parameters_0=param_0, model.rc=model.rc)$values
+  valSim <- fit_migramod(dataIn, parameters_0=param_0, model.rc=model.rc)$values
   values.names <- names(valSim)
 
   opti.pos <- switch (profile,
@@ -107,13 +111,13 @@ best_migramod <- function(dataIn, model.rc, profile="eleven",maxite=100, epsilon
 
     param_0 <- genRandomPar(profile=profile)
     if(datasimul){
-      valSim <- rbind(valSim,fit_migramod(data_In = dataIn, parameters_0=param_0, model.rc )$values)
+      valSim <- rbind(valSim,fit_migramod(dataIn, parameters_0=param_0, model.rc )$values)
       opti <- unlist(valSim[nrow(valSim),opti.pos])
       counter =counter + 1
       setTxtProgressBar(pb, counter)
     }else {
 
-      valSim_b  <- fit_migramod(data_In = dataIn, parameters_0=param_0, model.rc )$values
+      valSim_b  <- fit_migramod(dataIn, parameters_0=param_0, model.rc )$values
       opti <- unlist(valSim_b[opti.pos])
       if(counter == 0){
         valSim <- valSim_b

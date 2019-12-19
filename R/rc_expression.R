@@ -5,6 +5,7 @@
 #' @param profile Expression that fix the number of parameters has to have the equation to optimize
 #' @usage rc_expression(profile = 'seven')
 #' @return a list of simulated initial parameters
+#' @export
 #'
 rc_expression <-   function(profile = "seven"){
       switch(profile,

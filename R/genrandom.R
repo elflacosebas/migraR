@@ -5,6 +5,9 @@
 #' @param profile Number of parameters for the model that will be optimized.
 #' @usage genRandomPar(profile = "seven")
 #' @return A list with random values for parameters
+#' @importFrom stats runif
+#' @export
+#'
 #' @examples
 #' \dontrun{
 #' genRandomPar(profile = "seven")
