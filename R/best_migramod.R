@@ -88,47 +88,58 @@
 #'                  "R²:", round(as.numeric(fitted.val.13$bestRcuad),3))),
 #'                  col = c("red",'orange',"blue","darkgreen"), lty = c(2,6,3,5))
 #'}
-best_migramod <- function(dataIn = dataIn, model.rc, profile="eleven",maxite=100, epsilon = 1E-5, datasimul=T){
+best_migramod <- function(dataIn = dataIn, model.rc, profile="eleven",maxite=100, epsilon = 1E-5, datasimul=TRUE){
 
-  param_0 <- genRandomPar(profile=profile)
+  # TR: ideally genRandomPar() is given everything it needs via parameters.
+  # my impression is that it's detecting things from the environment in which it's called
+  param_0          <- genRandomPar(profile=profile)
   colnames(dataIn) <- c("x","y")
-  x <- dataIn[,1]
-  y <- dataIn[,2]
-  valSim <- fit_migramod(dataIn, parameters_0=param_0, model.rc=model.rc)$values
-  values.names <- names(valSim)
+  x                <- dataIn[,1]
+  y                <- dataIn[,2]
+  valSim           <- fit_migramod(dataIn, parameters_0=param_0, model.rc=model.rc)$values
+  values.names     <- names(valSim)
 
   opti.pos <- switch (profile,
-                  seven = 15
-                  ,nine = 19
-                  ,eleven = 23
-                  ,thirteen = 27
+                  seven = 15,
+                  nine = 19,
+                  eleven = 23,
+                  thirteen = 27
     )
 
-  opti <- unlist(valSim[opti.pos])
+  opti    <- valSim[[opti.pos]]
   counter <-  1
   pb <- txtProgressBar(counter, maxite,style = 3)
   while (opti > epsilon  &&  counter < maxite){
 
     param_0 <- genRandomPar(profile=profile)
-    if(datasimul){
-      valSim <- rbind(valSim,fit_migramod(dataIn, parameters_0=param_0, model.rc )$values)
-      opti <- unlist(valSim[nrow(valSim),opti.pos])
-      counter =counter + 1
+    if (datasimul){
+      # TR: note re efficiency:
+      # you're growing an object inside a loop,
+      # and that is a hungry operation. Maybe
+      # quicker to predefine a matrix valSim with maxite rows
+      # and then return 1:counter rows of it.
+
+      valSim  <- rbind(valSim,
+                       fit_migramod(dataIn, parameters_0=param_0, model.rc )$values)
+      opti    <- unlist(valSim[nrow(valSim),opti.pos])
+      counter <- counter + 1
       setTxtProgressBar(pb, counter)
-    }else {
+    } else {
 
       valSim_b  <- fit_migramod(dataIn, parameters_0=param_0, model.rc )$values
-      opti <- unlist(valSim_b[opti.pos])
-      if(counter == 0){
-        valSim <- valSim_b
-
-      }else{ valSim <- valSim}
-     if(opti < unlist(valSim[opti.pos])){
-       valSim <- valSim_b
-     }else {
+      opti      <- valSim_b[[opti.pos]]
+      if (counter == 0){
+         valSim <- valSim_b
+      } else {
          valSim <- valSim
-         }
-      counter =counter + 1
+      }
+
+     if (opti < valSim[[opti.pos]]){
+         valSim <- valSim_b
+     } else {
+         valSim <- valSim
+     }
+      counter   <- counter + 1
       setTxtProgressBar(pb, counter)
 
     }
