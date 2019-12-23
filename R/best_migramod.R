@@ -11,7 +11,7 @@
 #'@param datasimul Table with the different simulations and values of the parameters estimated.
 #'@return a list with named parameters
 #'@usage best_migramod(dataIn = dataIn, model.rc, profile = "eleven",
-#'       maxite = 100, epsilon = 1e-05, datasimul = T)
+#'       maxite = 100, epsilon = 1e-05, datasimul = TRUE)
 #'@importFrom dplyr mutate
 #'@importFrom dplyr mutate_if
 #'@importFrom dplyr %>%
@@ -106,10 +106,12 @@ best_migramod <- function(dataIn = dataIn, model.rc, profile="eleven",maxite=100
                   thirteen = 27
     )
 
-  opti    <- valSim[[opti.pos]]
+  opti    <- unlist(valSim[opti.pos])
   counter <-  1
-  pb <- txtProgressBar(counter, maxite,style = 3)
-  while (opti > epsilon  &&  counter < maxite){
+  pb <- txtProgressBar(counter, maxite, style = 3)
+
+  for(i in 2: maxite){
+  #while (opti > epsilon  &&  counter < maxite){
 
     param_0 <- genRandomPar(profile=profile)
     if (datasimul){
@@ -127,14 +129,14 @@ best_migramod <- function(dataIn = dataIn, model.rc, profile="eleven",maxite=100
     } else {
 
       valSim_b  <- fit_migramod(dataIn, parameters_0=param_0, model.rc )$values
-      opti      <- valSim_b[[opti.pos]]
+      opti      <- unlist(valSim_b[opti.pos])
       if (counter == 0){
          valSim <- valSim_b
       } else {
          valSim <- valSim
       }
 
-     if (opti < valSim[[opti.pos]]){
+     if (opti <- unlist(valSim[opti.pos])){
          valSim <- valSim_b
      } else {
          valSim <- valSim

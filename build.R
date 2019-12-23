@@ -5,8 +5,6 @@ document()
 
 check()
 
-
-
  library(migraR)
  library(dplyr)
  data("es_asmr")
@@ -71,4 +69,4 @@ check()
                   "R²:", round(as.numeric(fitted.val.11$bestRcuad),3)),
                   paste("(13)", "MAPE:", round(as.numeric(fitted.val.13$bestMAPE),2),
                   "R²:", round(as.numeric(fitted.val.13$bestRcuad),3))),
-                  col = c("red",'orange',"blue","darkgreen"), lty = c(2,6,3,5)
+                  col = c("red",'orange',"blue","darkgreen"), lty = c(2,6,3,5))

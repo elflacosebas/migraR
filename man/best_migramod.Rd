@@ -5,7 +5,7 @@
 \title{Select best migramod model.}
 \usage{
 best_migramod(dataIn = dataIn, model.rc, profile = "eleven",
-      maxite = 100, epsilon = 1e-05, datasimul = T)
+      maxite = 100, epsilon = 1e-05, datasimul = TRUE)
 }
 \arguments{
 \item{dataIn}{Standarized migration data set for optimization.}
