@@ -26,7 +26,7 @@ fit_migramod <- function(dataIn, parameters_0, model.rc){
   x <- dataIn$x
   y <- dataIn$y
 
-  graProof <- model.rc$gradient(p= parameters_0, dataIn = dataIn)
+  graProof <- model.rc$gradient(p = parameters_0, dataIn)
   constrains <- matrix(rep(c(0,0.7),nrow(graProof)),c(nrow(graProof),2),byrow = T )
   mu.rows <- grepl("mu",row.names(graProof))
   constrains[mu.rows,] <- sort(rep(c(1,90),sum(mu.rows)))

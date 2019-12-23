@@ -10,7 +10,7 @@
 #'@param epsilon Tolerance in which the difference between the Mean Squared Error that will finish the algorithm.
 #'@param datasimul Table with the different simulations and values of the parameters estimated.
 #'@return a list with named parameters
-#'@usage best_migramod(dataIn = dataIn, model.rc, profile = "eleven",
+#'@usage best_migramod(dataIn, model.rc, profile = "eleven",
 #'       maxite = 100, epsilon = 1e-05, datasimul = TRUE)
 #'@importFrom dplyr mutate
 #'@importFrom dplyr mutate_if
@@ -88,7 +88,7 @@
 #'                  "R²:", round(as.numeric(fitted.val.13$bestRcuad),3))),
 #'                  col = c("red",'orange',"blue","darkgreen"), lty = c(2,6,3,5))
 #'}
-best_migramod <- function(dataIn = dataIn, model.rc, profile="eleven",maxite=100, epsilon = 1E-5, datasimul=TRUE){
+best_migramod <- function(dataIn, model.rc, profile="eleven",maxite=100, epsilon = 1E-5, datasimul=TRUE){
 
   # TR: ideally genRandomPar() is given everything it needs via parameters.
   # my impression is that it's detecting things from the environment in which it's called
@@ -96,7 +96,7 @@ best_migramod <- function(dataIn = dataIn, model.rc, profile="eleven",maxite=100
   colnames(dataIn) <- c("x","y")
   x                <- dataIn[,1]
   y                <- dataIn[,2]
-  valSim           <- fit_migramod(dataIn, parameters_0=param_0, model.rc=model.rc)$values
+  valSim           <- fit_migramod(dataIn, parameters_0 = param_0, model.rc = model.rc)$values
   values.names     <- names(valSim)
 
   opti.pos <- switch (profile,
@@ -121,8 +121,7 @@ best_migramod <- function(dataIn = dataIn, model.rc, profile="eleven",maxite=100
       # quicker to predefine a matrix valSim with maxite rows
       # and then return 1:counter rows of it.
 
-
-      valSim <- rbind(valSim,fit_migramod(dataIn, parameters_0=param_0, model.rc )$values)
+      valSim <- rbind(valSim,fit_migramod(dataIn, parameters_0 = param_0, model.rc)$values)
       opti <- unlist(valSim[nrow(valSim),opti.pos])
       counter =counter + 1
       setTxtProgressBar(pb, counter)
