@@ -110,8 +110,8 @@ best_migramod <- function(dataIn = dataIn, model.rc, profile="eleven",maxite=100
   counter <-  1
   pb <- txtProgressBar(counter, maxite, style = 3)
 
-  for(i in 2: maxite){
-  #while (opti > epsilon  &&  counter < maxite){
+  for(i in 2: maxite){ # SR: this is one solution, we lost opti epsilon as a parameter
+    #while (opti > epsilon  &&  counter < maxite){
 
     param_0 <- genRandomPar(profile=profile)
     if (datasimul){
@@ -121,32 +121,30 @@ best_migramod <- function(dataIn = dataIn, model.rc, profile="eleven",maxite=100
       # quicker to predefine a matrix valSim with maxite rows
       # and then return 1:counter rows of it.
 
-      valSim  <- rbind(valSim,
-                       fit_migramod(dataIn, parameters_0=param_0, model.rc )$values)
-      opti    <- unlist(valSim[nrow(valSim),opti.pos])
-      counter <- counter + 1
-      setTxtProgressBar(pb, counter)
-    } else {
 
-      valSim_b  <- fit_migramod(dataIn, parameters_0=param_0, model.rc )$values
-      opti      <- unlist(valSim_b[opti.pos])
-      if (counter == 0){
-         valSim <- valSim_b
-      } else {
-         valSim <- valSim
+      valSim <- rbind(valSim,fit_migramod(dataIn, parameters_0=param_0, model.rc )$values)
+      opti <- unlist(valSim[nrow(valSim),opti.pos])
+      counter =counter + 1
+      setTxtProgressBar(pb, counter)
+
+    }else{
+      valSim_b  <- fit_migramod(dataIn, parameters_0=param_0, model.rc)$values
+      opti <- unlist(valSim_b[opti.pos])
+      if(counter == 0){
+        valSim <- valSim_b
+
+      }else{ valSim <- valSim}
+      if(opti < unlist(valSim[opti.pos])){
+        valSim <- valSim_b
+      }else {
+        valSim <- valSim
       }
-
-     if (opti <- unlist(valSim[opti.pos])){
-         valSim <- valSim_b
-     } else {
-         valSim <- valSim
-     }
-      counter   <- counter + 1
+      counter =counter + 1
       setTxtProgressBar(pb, counter)
-
     }
-
   }
+
+
   close(pb)
   if(datasimul){
     rownames(valSim)<- 1:nrow(valSim)
@@ -154,13 +152,12 @@ best_migramod <- function(dataIn = dataIn, model.rc, profile="eleven",maxite=100
   }else{
     valSim <- rbind(valSim,valSim)
   }
-
-
   params.n <- switch (profile,
-    seven = list(subzero=1:7,hat=8:14)
-    ,nine = list(subzero=1:9,hat=10:18)
-    ,eleven = list(subzero=1:11,hat=12:22)
-    ,thirteen = list(subzero=1:13,hat=14:26)
+                      seven = list(subzero=1:7,hat=8:14)
+                      ,nine = list(subzero=1:9,hat=10:18)
+                      ,eleven = list(subzero=1:11,hat=12:22)
+                      ,thirteen = list(subzero=1:13,hat=14:26)
+                      ,nuptial = list(subzero=1:5,hat=6:10)
   )
 
 
