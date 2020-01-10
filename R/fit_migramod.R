@@ -28,14 +28,14 @@ fit_migramod <- function(dataIn, parameters_0, model.rc){
   x <- dataIn$x
   y <- dataIn$y
 
-  graProof <- model.rc$gradient(p= parameters_0, data = dataIn)
+  graProof <- model.rc$gradient(p = parameters_0, dataIn)
   constrains <- matrix(rep(c(0,0.7),nrow(graProof)),c(nrow(graProof),2),byrow = T )
   mu.rows <- grepl("mu",row.names(graProof))
   constrains[mu.rows,] <- sort(rep(c(1,90),sum(mu.rows)))
 
   while((any(is.na(graProof)) || any(is.nan(graProof)))){
     parameters_0 <-  genRandomPar()
-    graProof <- model.rc$gradient(p= parameters_0)
+    graProof <- model.rc$gradient(p= parameters_0, data = dataIn)
   }
 
   fit1 <-  try(nlminb(parameters_0 , function(p, data){

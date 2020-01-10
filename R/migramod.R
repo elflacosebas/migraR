@@ -24,19 +24,19 @@ MigraModel <- setRefClass('MigraModel',
                             jacobian = function(p, data){
 
                               J = t(sapply(all.vars(.self$expr), function(v, p, data){
-                                eval(D(.self$expr, v), c(as.list(p), as.list(.Data)))
+                                eval(D(.self$expr, v), c(as.list(p), as.list(data)))
 
                               }, p=p, data=data))
                               return(J[names(p),,drop=F])
                             },
 
-                            gradient = function(p, .Data){
-                              r = .Data$y - value(p, .Data)
-                              return(-jacobian(p, .Data) %*% r)
+                            gradient = function(p, data){
+                              r = data$y - value(p, data)
+                              return(-jacobian(p, data) %*% r)
                             },
 
-                            hessian = function(p, .Data){
-                              J = jacobian(p, .Data)
+                            hessian = function(p, data){
+                              J = jacobian(p, data)
                               return(J %*% t(J))
                             }
                           )
