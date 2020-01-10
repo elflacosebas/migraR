@@ -19,10 +19,10 @@
 #'
 genRandomPar <- function(profile = "seven"){
   param1 <- list(a1=c(0,0.99999),alpha1=c(0,0.99999), a2=c(0,0.99999)
-                , alpha2=c(0,0.99999), mu2=c(1,99), lambda2=c(0,0.99999)
-                , a3=c(0,0.99999), alpha3=c(0,0.99999), mu3=c(1,99), lambda3=c(0,0.99999)
-                ,a4=c(0,0.99999), lambda4=c(0,0.99999)
-                ,c1=c(0,0.99999))
+                 , alpha2=c(0,0.99999), mu2=c(1,99), lambda2=c(0,0.99999)
+                 , a3=c(0,0.99999), alpha3=c(0,0.99999), mu3=c(1,99), lambda3=c(0,0.99999)
+                 ,a4=c(0,0.99999), lambda4=c(0,0.99999)
+                 ,c1=c(0,0.99999))
   param2 <- list()
   param <- c(param1[setdiff(names(param1), names(param2))]
              ,param2)
@@ -42,7 +42,7 @@ genRandomPar <- function(profile = "seven"){
   alpha3 <- runif(1, param$alpha3[1], param$alpha3[2])
   mu3 <- floor(runif(1,   param$mu3[1],   param$mu3[2]))  #customize for user
   lambda3 <- runif(1, param$lambda3[1], param$lambda3[2])
- #
+  #
   a4 <- runif(1, param$a4[1], param$a4[2])
   lambda4 <- runif(1, param$lambda4[1], param$lambda4[2])
   #constante
@@ -58,11 +58,12 @@ genRandomPar <- function(profile = "seven"){
                        ,c1=c1)
 
 
-switch(profile,
-       seven= parameters_0[c(1:6,13)]
-       ,nine= parameters_0[c(1:7,9,13)]
-       ,eleven =parameters_0[c(1:10,13)]
-      , thirteen = parameters_0[])
+  switch(profile,
+         seven= parameters_0[c(1:6,13)]
+         , nine= parameters_0[c(1:7,9,13)]
+         , eleven =parameters_0[c(1:10,13)]
+         , nuptial = parameters_0[c(3:6,13)]
+         , thirteen = parameters_0[])
 }
 
 

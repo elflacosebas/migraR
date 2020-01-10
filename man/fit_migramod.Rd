@@ -28,4 +28,6 @@ model.rc = MigraModel(
 )
 fit_migramod(dataIn, param0, model.rc)
 }
+
+
 }

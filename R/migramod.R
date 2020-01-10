@@ -8,33 +8,36 @@
 #' @field name A character name
 #' @field expr An rc_expression
 #'@export MigraModel
+#'
+#'
 MigraModel <- setRefClass('MigraModel',
                           fields = list(
                             name = 'character',
                             expr = 'expression'
                           ),
                           methods = list(
-                            value = function(p, dataIn){
-                              eval(.self$expr, c(as.list(p), as.list(dataIn)))
-                            },
-                            jacobian = function(p, dataIn){
-                              J = t(sapply(all.vars(.self$expr), function(v, p, dataIn){
+                            value = function(p, data){
 
-                                eval(D(.self$expr, v), c(as.list(p), as.list(dataIn)))
-
-                              }, p=p, data=dataIn))
-
-                              return(J[names(p),,drop=FALSE])
+                              eval(.self$expr, c(as.list(p), as.list(data)))
                             },
-                            gradient = function(p, dataIn){
-                              r = dataIn$y - value(p, dataIn)
-                              return(-jacobian(p, dataIn) %*% r)
+
+                            jacobian = function(p, data){
+
+                              J = t(sapply(all.vars(.self$expr), function(v, p, data){
+                                eval(D(.self$expr, v), c(as.list(p), as.list(.Data)))
+
+                              }, p=p, data=data))
+                              return(J[names(p),,drop=F])
                             },
-                            hessian = function(p, dataIn){
-                              J = jacobian(p, dataIn)
+
+                            gradient = function(p, .Data){
+                              r = .Data$y - value(p, .Data)
+                              return(-jacobian(p, .Data) %*% r)
+                            },
+
+                            hessian = function(p, .Data){
+                              J = jacobian(p, .Data)
                               return(J %*% t(J))
                             }
                           )
 )
-
-

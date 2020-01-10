@@ -1,3 +1,3 @@
 
 
-utils::globalVariables(c("dataIn", "new"))
+utils::globalVariables(c("dataIn", "new", "x", "y", "data"))

@@ -88,45 +88,41 @@
 #'                  "R²:", round(as.numeric(fitted.val.13$bestRcuad),3))),
 #'                  col = c("red",'orange',"blue","darkgreen"), lty = c(2,6,3,5))
 #'}
+
 best_migramod <- function(dataIn, model.rc, profile="eleven",maxite=100, epsilon = 1E-5, datasimul=TRUE){
 
-  # TR: ideally genRandomPar() is given everything it needs via parameters.
-  # my impression is that it's detecting things from the environment in which it's called
-  param_0          <- genRandomPar(profile=profile)
+  param_0 <- genRandomPar(profile = profile)
   colnames(dataIn) <- c("x","y")
-  x                <- dataIn[,1]
-  y                <- dataIn[,2]
-  valSim           <- fit_migramod(dataIn, parameters_0 = param_0, model.rc = model.rc)$values
-  values.names     <- names(valSim)
+  x <- dataIn[,1]
+  y <- dataIn[,2]
+
+  valSim <- fit_migramod(dataIn, parameters_0=param_0, model.rc=model.rc )$values
+  values.names <- names(valSim)
 
   opti.pos <- switch (profile,
-                  seven = 15,
-                  nine = 19,
-                  eleven = 23,
-                  thirteen = 27
-    )
+                      seven = 15
+                      ,nine = 19
+                      ,eleven = 23
+                      ,thirteen = 27
+                      , nuptial = 11
+  )
 
-  opti    <- unlist(valSim[opti.pos])
+  opti <- unlist(valSim[opti.pos])
+
   counter <-  1
-  pb <- txtProgressBar(counter, maxite, style = 3)
+  pb <- txtProgressBar(counter, maxite,style = 3)
 
   for(i in 2: maxite){ # SR: this is one solution, we lost opti epsilon as a parameter
-    #while (opti > epsilon  &&  counter < maxite){
-
+  #while (opti > epsilon  &&  counter < maxite){
     param_0 <- genRandomPar(profile=profile)
-    if (datasimul){
-      # TR: note re efficiency:
-      # you're growing an object inside a loop,
-      # and that is a hungry operation. Maybe
-      # quicker to predefine a matrix valSim with maxite rows
-      # and then return 1:counter rows of it.
-
-      valSim <- rbind(valSim,fit_migramod(dataIn, parameters_0 = param_0, model.rc)$values)
+    if(datasimul){
+      valSim <- rbind(valSim,fit_migramod(dataIn, parameters_0=param_0, model.rc )$values)
       opti <- unlist(valSim[nrow(valSim),opti.pos])
       counter =counter + 1
       setTxtProgressBar(pb, counter)
 
     }else{
+
       valSim_b  <- fit_migramod(dataIn, parameters_0=param_0, model.rc)$values
       opti <- unlist(valSim_b[opti.pos])
       if(counter == 0){
@@ -142,8 +138,6 @@ best_migramod <- function(dataIn, model.rc, profile="eleven",maxite=100, epsilon
       setTxtProgressBar(pb, counter)
     }
   }
-
-
   close(pb)
   if(datasimul){
     rownames(valSim)<- 1:nrow(valSim)
@@ -162,31 +156,31 @@ best_migramod <- function(dataIn, model.rc, profile="eleven",maxite=100, epsilon
 
   colnames(valSim) <- c(paste(values.names[params.n$subzero],'_0',sep =''), paste(values.names[params.n$hat],'_hat',sep ='')
                         ,'optimResult',"message", 'MAPE', 'RCuad' )
-    valSim <- as.data.frame(valSim)
-    dataSimul <- valSim %>% mutate(message=as.character(message)) %>%
-         mutate_if( is.factor, .funs = function(x)as.numeric(as.character(x)))
+  valSim <- as.data.frame(valSim)
+  dataSimul <- valSim %>% mutate(message=as.character(message)) %>%
+    mutate_if( is.factor, .funs = function(x)as.numeric(as.character(x)))
 
-   bestPar <- dataSimul[which.min(dataSimul$optimResult),params.n$hat]
-   bestParam_0 <- dataSimul[which.min(dataSimul$optimResult),params.n$subzero]
+  bestPar <- dataSimul[which.min(dataSimul$optimResult),params.n$hat]
+  bestParam_0 <- dataSimul[which.min(dataSimul$optimResult),params.n$subzero]
 
-   bestPar.mape <- dataSimul[which.min(dataSimul$MAPE),params.n$hat]
-   bestOptimRes <- dataSimul[which.min(dataSimul$optimResult), "optimResult"]
-   bestMAPE <- dataSimul[which.min(dataSimul$MAPE),"MAPE"]
-   bestRcuad <- dataSimul[which.min(dataSimul$MAPE),"RCuad"]
+  bestPar.mape <- dataSimul[which.min(dataSimul$MAPE),params.n$hat]
+  bestOptimRes <- dataSimul[which.min(dataSimul$optimResult), "optimResult"]
+  bestMAPE <- dataSimul[which.min(dataSimul$MAPE),"MAPE"]
+  bestRcuad <- dataSimul[which.min(dataSimul$MAPE),"RCuad"]
 
-   names(bestPar) <- names(param_0)
-   names(bestPar.mape) <- names(param_0)
-   bestPar <- sapply(bestPar,as.list)
-   names(bestPar) <- names(param_0)
+  names(bestPar) <- names(param_0)
+  names(bestPar.mape) <- names(param_0)
+  bestPar <- sapply(bestPar,as.list)
+  names(bestPar) <- names(param_0)
 
-        return(list(bestParam=bestPar
-                    ,bestParam_0= bestParam_0
-                    ,bestOptimRes=bestOptimRes
-                    ,bestMAPE=bestMAPE
-                    ,bestRcuad=bestRcuad
-                    ,dataSimul=dataSimul))
-
-        }
+  return(list(bestParam=bestPar
+              ,bestParam_0= bestParam_0
+              ,bestOptimRes=bestOptimRes
+              ,bestMAPE=bestMAPE
+              ,bestRcuad=bestRcuad
+              ,dataSimul=dataSimul))
+  #detach(dataIn)
+}
 
 
 

@@ -2,15 +2,15 @@
 library(devtools)
 
 document()
-
+build()
 check()
 
  library(migraR)
  library(dplyr)
  data("es_asmr")
  data1 <- es_asmr[-c(1,2),c(1,5)]
- # colnames(data1) <- c("x","y")
- # attach(data1)
+  colnames(data1) <- c("x","y")
+  attach(data1)
 
  model.rc.7 = MigraModel(
    name = 'castro_7',
@@ -33,16 +33,16 @@ check()
  )
 
  fitted.val.7 <- best_migramod(dataIn = data1,
-                 model.rc =model.rc.7, maxite = 5E2,
+                 model.rc =model.rc.7, maxite = 10,
                  profile = "seven")
  fitted.val.9 <- best_migramod(dataIn = data1,
-                 model.rc =model.rc.9, maxite = 5E2,
+                 model.rc = model.rc.9, maxite = 10,
                  profile = "nine")
  fitted.val.11 <- best_migramod(dataIn = data1,
-                  model.rc =model.rc.11, maxite = 5E2,
+                  model.rc = model.rc.11, maxite = 10,
                   profile = "eleven")
  fitted.val.13 <- best_migramod(dataIn = data1,
-                  model.rc =model.rc.13, maxite = 5E2,
+                  model.rc = model.rc.13, maxite = 10,
                   profile = "thirteen")
 
  x11()
