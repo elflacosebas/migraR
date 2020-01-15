@@ -96,7 +96,15 @@ best_migramod <- function(dataIn, model.rc, profile="eleven",maxite=100, epsilon
   x <- dataIn[,1]
   y <- dataIn[,2]
 
-  valSim <- fit_migramod(dataIn, parameters_0=param_0, model.rc=model.rc )$values
+  #avoiding the step of creation outside best_migramod
+  #model.rc = MigraModel(
+   # name = 'castro_',
+   # expr = rc_expression(profile = "seven")
+  #)
+
+  attach(dataIn)
+
+  valSim <- fit_migramod(dataIn, parameters_0 = param_0, model.rc  = model.rc)$values
   values.names <- names(valSim)
 
   opti.pos <- switch (profile,
@@ -104,7 +112,7 @@ best_migramod <- function(dataIn, model.rc, profile="eleven",maxite=100, epsilon
                       ,nine = 19
                       ,eleven = 23
                       ,thirteen = 27
-                      , nuptial = 11
+                      ,nuptial = 11
   )
 
   opti <- unlist(valSim[opti.pos])
@@ -116,7 +124,7 @@ best_migramod <- function(dataIn, model.rc, profile="eleven",maxite=100, epsilon
   #while (opti > epsilon  &&  counter < maxite){
     param_0 <- genRandomPar(profile=profile)
     if(datasimul){
-      valSim <- rbind(valSim,fit_migramod(dataIn, parameters_0=param_0, model.rc )$values)
+      valSim <- rbind(valSim, fit_migramod(dataIn, parameters_0=param_0, model.rc = model.rc)$values)
       opti <- unlist(valSim[nrow(valSim),opti.pos])
       counter =counter + 1
       setTxtProgressBar(pb, counter)
@@ -179,7 +187,9 @@ best_migramod <- function(dataIn, model.rc, profile="eleven",maxite=100, epsilon
               ,bestMAPE=bestMAPE
               ,bestRcuad=bestRcuad
               ,dataSimul=dataSimul))
-  #detach(dataIn)
+
+
+  detach(dataIn)
 }
 
 

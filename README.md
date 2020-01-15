@@ -58,8 +58,8 @@ require(migraR)
 require(dplyr)
 data("es_asmr")
 data1 <- es_asmr[-c(1,2),c(1,5)]
-colnames(data1) <- c("x","y") #Until now, this step is necessary to run well the function best_migramod
-attach(data1) #Until now, this step is necessary to run well the function best_migramod
+#colnames(data1) <- c("x","y") #Until now, this step is necessary to run well the function best_migramod
+#attach(data1) 
 
 # Creating MigraModel Classes based on Rogers and Castro expressions. 
 

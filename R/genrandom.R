@@ -60,10 +60,10 @@ genRandomPar <- function(profile = "seven"){
 
   switch(profile,
          seven= parameters_0[c(1:6,13)]
-         , nine= parameters_0[c(1:7,9,13)]
-         , eleven =parameters_0[c(1:10,13)]
-         , nuptial = parameters_0[c(3:6,13)]
-         , thirteen = parameters_0[])
+         ,nine= parameters_0[c(1:7,9,13)]
+         ,eleven =parameters_0[c(1:10,13)]
+         ,nuptial = parameters_0[c(3:6,13)]
+         ,thirteen = parameters_0[])
 }
 
 

@@ -1,16 +1,22 @@
 
+
 library(devtools)
+library(pkgdown)
+library(goodpractice)
 
 document()
 build()
 check()
+#gp()
+#spell_check()
+#?build_website()
 
  library(migraR)
  library(dplyr)
  data("es_asmr")
  data1 <- es_asmr[-c(1,2),c(1,5)]
- # colnames(data1) <- c("x","y")
-  #attach(data1)
+ #colnames(data1) <- c("x","y")
+ #attach(data1)
 
  model.rc.7 = MigraModel(
    name = 'castro_7',
