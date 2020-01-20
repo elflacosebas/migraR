@@ -58,30 +58,11 @@ require(migraR)
 require(dplyr)
 data("es_asmr")
 data1 <- es_asmr[-c(1,2),c(1,5)]
-#colnames(data1) <- c("x","y") PACKAGE UNDER CHANGES
-#attach(data1) PACKAGE UNDER CHANGES
+colnames(data1) <- c("x","y") 
+attach(data1) # I want to get rid of this but eval nside fit_migramod has a problem
 
-# Creating MigraModel Classes based on Rogers and Castro expressions. 
-
-model.rc.7 = MigraModel(
-   name = 'castro_7',
-   expr = rc_expression(profile = "seven")
- )
- 
-model.rc.9 = MigraModel(
-   name = 'castro_9',
-   expr = rc_expression(profile = "nine")
- )
- 
- model.rc.11 = MigraModel(
-   name = 'castro_11',
-   expr = rc_expression(profile = "eleven")
- )
- 
- model.rc.13 = MigraModel(
-   name = 'castro_13',
-   expr = rc_expression(profile = "thirteen")
- )
+# Previously we had to create the class for each model but now
+# best_migramod does it inside as suggested TR
 
 # Fitting and Plotting data
  fitted.val.7 <- best_migramod(dataIn = data1, model.rc =model.rc.7, maxite = 5E2, profile = "seven")
