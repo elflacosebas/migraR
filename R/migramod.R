@@ -18,12 +18,12 @@ MigraModel <- setRefClass('MigraModel',
                           methods = list(
                             value = function(p, dataIn){
 
-                              eval(expr, c(as.list(p), as.list(dataIn)))
+                              eval(.self$expr, c(as.list(p), as.list(dataIn)))
                             },
                             jacobian = function(p, dataIn){
-                              J = t(sapply(all.vars(expr), function(v, p, dataIn){
+                              J = t(sapply(all.vars(.self$expr), function(v, p, dataIn){
 
-                                eval(D(expr, v), c(as.list(p), as.list(dataIn)))
+                                eval(D(.self$expr, v), c(as.list(p), as.list(dataIn)))
 
                               }, p=p, data=dataIn))
 

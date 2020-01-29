@@ -1,5 +1,4 @@
 
-
 library(devtools)
 library(pkgdown)
 library(goodpractice)
@@ -19,17 +18,38 @@ check()
  colnames(data1) <- c("x","y")
  attach(data1)
 
+ model.rc.7 = MigraModel(
+   name = 'castro_7',
+   expr = rc_expression(profile = "seven")
+ )
+
+ model.rc.9 = MigraModel(
+   name = 'castro_9',
+   expr = rc_expression(profile = "nine")
+ )
+
+ model.rc.11 = MigraModel(
+   name = 'castro_11',
+   expr = rc_expression(profile = "eleven")
+ )
+
+ model.rc.13 = MigraModel(
+   name = 'castro_13',
+   expr = rc_expression(profile = "thirteen")
+ )
+
+ # Fitting and Plotting data
  fitted.val.7 <- best_migramod(dataIn = data1,
-                 maxite = 10,
+                 model.rc = model.rc.7, maxite = 50,
                  profile = "seven")
  fitted.val.9 <- best_migramod(dataIn = data1,
-                 maxite = 10,
+                 model.rc = model.rc.9, maxite = 50,
                  profile = "nine")
  fitted.val.11 <- best_migramod(dataIn = data1,
-                  maxite = 10,
+                  model.rc = model.rc.11, maxite = 50,
                   profile = "eleven")
  fitted.val.13 <- best_migramod(dataIn = data1,
-                  maxite = 10,
+                  model.rc = model.rc.13, maxite = 50,
                   profile = "thirteen")
 
  x11()
