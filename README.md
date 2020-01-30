@@ -1,5 +1,5 @@
 
-#PACKAGE UNDER CONSTRUCTION SOON WILL BE AVAILABLE AGAIN
+#PACKAGE UNDER CHANGES, WORKABLE VERSION
 
 # migraR
 R package for migration analysis focused now on the Rogers and Castro multi exponential model and the estimation of the parameters using a bayesian simulation based on uniform a priori distributions for each parameter between 0 and 1, and 0 to 100 in the case of the location parameters corresponding to ages in the migration pattern. 
@@ -21,7 +21,11 @@ The migraR functions were concived for estimate via linear optimization of the l
 
 http://demographicestimation.iussp.org/content/multi-exponential-model-migration-schedule
 
+Know it is included the parametrization of the Coale and McNeil nuptiality curve, taken advantage of the class consruction. 
+
 Package under contiuous changes! place your bugs on the github tab issues :) :rocket:
+
+
 
 ## Getting Started
 
