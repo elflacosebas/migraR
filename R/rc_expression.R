@@ -7,6 +7,7 @@
 #' @return a list of simulated initial parameters
 #' @export
 #'
+#'
 rc_expression <-   function(profile = "seven"){
   switch(profile,
          "seven" = return(expression(log((a1 * exp(-alpha1 * x)) + (a2 * exp(-alpha2 * (x-mu2) - exp(-lambda2 * (x - mu2))))  + c1)))
