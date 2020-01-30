@@ -11,7 +11,7 @@ check()
 #spell_check()
 #?build_website()
 
-# install_github("elflacosebas/migraR")
+install_github("elflacosebas/migraR")
 
 
  library(migraR)
