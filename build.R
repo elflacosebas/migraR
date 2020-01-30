@@ -11,8 +11,7 @@ check()
 #spell_check()
 #?build_website()
 
-install_github("elflacosebas/migraR")
-
+install_github("elflacosebas/migraR", force = T)
 
  library(migraR)
  library(dplyr)
@@ -20,8 +19,6 @@ install_github("elflacosebas/migraR")
  data1 <- es_asmr[-c(1,2),c(1,5)]
  #colnames(data1) <- c("x","y")
  #attach(data1)
- rm(model.rc.7,model.rc.9, model.rc.11, model.rc.13,
-    fitted.val.7, fitted.val.9, fitted.val.11, fitted.val.13)
 
  model.rc.7 = MigraModel(
    name = 'castro_7',
@@ -83,6 +80,5 @@ install_github("elflacosebas/migraR")
                   "R²:", round(as.numeric(fitted.val.13$bestRcuad),3))),
                   col = c("red",'orange',"blue","darkgreen"), lty = c(2,6,3,5))
 
- 
- 
- 
+
+

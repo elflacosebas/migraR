@@ -4,11 +4,13 @@
 \alias{best_migramod}
 \title{Select best migramod model.}
 \usage{
-best_migramod(dataIn, profile = "eleven",
+best_migramod(dataIn, model.rc, profile = "eleven",
       maxite = 100, epsilon = 1e-05, datasimul = TRUE)
 }
 \arguments{
 \item{dataIn}{Standarized migration data set for optimization.}
+
+\item{model.rc}{a Object of class Migramod.}
 
 \item{profile}{Number of parameters of a Roger and Castro model.}
 
@@ -34,18 +36,38 @@ data1 <- es_asmr[-c(1,2),c(1,5)]
 colnames(data1) <- c("x","y")
 attach(data1)
 
+model.rc.7 = MigraModel(
+  name = 'castro_7',
+  expr = rc_expression(profile = "seven")
+)
+
+model.rc.9 = MigraModel(
+  name = 'castro_9',
+  expr = rc_expression(profile = "nine")
+)
+
+model.rc.11 = MigraModel(
+  name = 'castro_11',
+  expr = rc_expression(profile = "eleven")
+)
+
+model.rc.13 = MigraModel(
+  name = 'castro_13',
+  expr = rc_expression(profile = "thirteen")
+)
+
 # Fitting and Plotting data
 fitted.val.7 <- best_migramod(dataIn = data1,
-                maxite = 5E2,
+                model.rc = model.rc.7, maxite = 5E2,
                 profile = "seven")
 fitted.val.9 <- best_migramod(dataIn = data1,
-                maxite = 5E2,
+                model.rc = model.rc.9, maxite = 5E2,
                 profile = "nine")
 fitted.val.11 <- best_migramod(dataIn = data1,
-                 maxite = 5E2,
+                 model.rc = model.rc.11, maxite = 5E2,
                  profile = "eleven")
 fitted.val.13 <- best_migramod(dataIn = data1,
-                 maxite = 5E2,
+                 model.rc = model.rc.13, maxite = 5E2,
                  profile = "thirteen")
 
 x11()
