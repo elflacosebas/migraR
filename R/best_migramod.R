@@ -4,13 +4,12 @@
 #'distributions with values between 0 and 1 for the initial parameters.
 #'
 #'@param dataIn Standarized migration data set for optimization.
-#'@param model.rc a Object of class Migramod.
 #'@param profile Number of parameters of a Roger and Castro model.
 #'@param maxite Maximum number of iterations for model optimization.
 #'@param epsilon Tolerance in which the difference between the Mean Squared Error that will finish the algorithm.
 #'@param datasimul Table with the different simulations and values of the parameters estimated.
 #'@return a list with named parameters
-#'@usage best_migramod(dataIn, model.rc, profile = "eleven",
+#'@usage best_migramod(dataIn, profile = "eleven",
 #'       maxite = 100, epsilon = 1e-05, datasimul = TRUE)
 #'@importFrom dplyr mutate
 #'@importFrom dplyr mutate_if
@@ -24,72 +23,53 @@
 #' library(migraR)
 #' library(dplyr)
 #' data("es_asmr")
-#' data1 <- es_asmr[-c(1,2),c(1,5)]
+#' data1 <- es_asmr[-c(1,2),c(1,6)]
 #' colnames(data1) <- c("x","y")
-#' attach(data1)
 #'
-#' model.rc.7 = MigraModel(
-#'   name = 'castro_7',
-#'   expr = rc_expression(profile = "seven")
-#' )
 #'
-#' model.rc.9 = MigraModel(
-#'   name = 'castro_9',
-#'   expr = rc_expression(profile = "nine")
-#' )
 #'
-#' model.rc.11 = MigraModel(
-#'   name = 'castro_11',
-#'   expr = rc_expression(profile = "eleven")
-#' )
-#'
-#' model.rc.13 = MigraModel(
-#'   name = 'castro_13',
-#'   expr = rc_expression(profile = "thirteen")
-#' )
-#'
-#' # Fitting and Plotting data
 #' fitted.val.7 <- best_migramod(dataIn = data1,
-#'                 model.rc = model.rc.7, maxite = 5E2,
-#'                 profile = "seven")
+#'                               maxite = 10,
+#'                               profile = "seven")
 #' fitted.val.9 <- best_migramod(dataIn = data1,
-#'                 model.rc = model.rc.9, maxite = 5E2,
-#'                 profile = "nine")
+#'                               maxite = 10,
+#'                              profile = "nine")
 #' fitted.val.11 <- best_migramod(dataIn = data1,
-#'                  model.rc = model.rc.11, maxite = 5E2,
-#'                  profile = "eleven")
+#'                                maxite = 10,
+#'                                profile = "eleven")
 #' fitted.val.13 <- best_migramod(dataIn = data1,
-#'                  model.rc = model.rc.13, maxite = 5E2,
-#'                  profile = "thirteen")
+#'                                maxite = 10,
+#'                                profile = "thirteen")
 #'
 #' x11()
 #' plot(data1, cex=0.1, xlab = 'Age',
-#'      ylab = 'Standarized Migration Rate')
+#'     ylab = 'Standarized Migration Rate')
 #' lines(data1[,1],
-#'       model.rc.7$value(fitted.val.7$bestParam,data1),
+#'       fitted.val.7$modelClass$value(fitted.val.7$bestParam,data1),
 #'       col="blue")
 #' lines(data1[,1],
-#'       model.rc.9$value(fitted.val.9$bestParam,data1),
+#'       fitted.val.9$modelClass$value(fitted.val.9$bestParam,data1),
 #'       col="orange")
 #' lines(data1[,1],
-#'       model.rc.11$value(fitted.val.11$bestParam,data1),
+#'       fitted.val.11$modelClass$value(fitted.val.11$bestParam,data1),
 #'       col="blue", lty=3)
 #' lines(data1[,1],
-#'       model.rc.13$value(fitted.val.13$bestParam,data1),
+#'       fitted.val.13$modelClass$value(fitted.val.13$bestParam,data1),
 #'       col="green")
 #' legend('topright',
-#'       legend = c(paste("(7)", "MAPE:", round(as.numeric(fitted.val.7$bestMAPE),2),
-#'                  "R²:", round(as.numeric(fitted.val.7$bestRcuad),3)),
-#'                  paste("(9)", "MAPE:", round(as.numeric(fitted.val.9$bestMAPE),2),
-#'                  "R²:", round(as.numeric(fitted.val.9$bestRcuad),3)),
-#'                  paste("(11)", "MAPE:", round(as.numeric(fitted.val.11$bestMAPE),2),
-#'                  "R²:", round(as.numeric(fitted.val.11$bestRcuad),3)),
-#'                  paste("(13)", "MAPE:", round(as.numeric(fitted.val.13$bestMAPE),2),
-#'                  "R²:", round(as.numeric(fitted.val.13$bestRcuad),3))),
-#'                  col = c("red",'orange',"blue","darkgreen"), lty = c(2,6,3,5))
-#'}
+#'        legend = c(paste("(7)", "MAPE:", round(as.numeric(fitted.val.7$bestMAPE),2),
+#'                         "R²:", round(as.numeric(fitted.val.7$bestRcuad),3)),
+#'                   paste("(9)", "MAPE:", round(as.numeric(fitted.val.9$bestMAPE),2),
+#'                         "R²:", round(as.numeric(fitted.val.9$bestRcuad),3)),
+#'                   paste("(11)", "MAPE:", round(as.numeric(fitted.val.11$bestMAPE),2),
+#'                         "R²:", round(as.numeric(fitted.val.11$bestRcuad),3)),
+#'                   paste("(13)", "MAPE:", round(as.numeric(fitted.val.13$bestMAPE),2),
+#'                         "R²:", round(as.numeric(fitted.val.13$bestRcuad),3))),
+#'        col = c("red",'orange',"blue","darkgreen"), lty = c(2,6,3,5))
+#'        }
 
-best_migramod <- function(dataIn, model.rc, profile="eleven", maxite=100, epsilon = 1E-5, datasimul=TRUE){
+
+best_migramod <- function(dataIn, profile="eleven",maxite=100, epsilon = 1E-5, datasimul=TRUE){
 
   param_0 <- genRandomPar(profile = profile)
   colnames(dataIn) <- c("x","y")
@@ -97,10 +77,11 @@ best_migramod <- function(dataIn, model.rc, profile="eleven", maxite=100, epsilo
   y <- dataIn[,2]
 
   #avoiding the step of creation outside best_migramod
-  #model.rc <- MigraModel(
-  # name = paste0('Castro_', profile),
-  # expr = rc_expression(profile = profile)
-  #)
+  model.rc = MigraModel(
+    name = 'Parametric_model',
+    expr = rc_expression(profile = profile) ,
+    dataIn = dataIn
+  )
 
   #attach(dataIn)
 
@@ -121,23 +102,23 @@ best_migramod <- function(dataIn, model.rc, profile="eleven", maxite=100, epsilo
   pb <- txtProgressBar(counter, maxite,style = 3)
 
   for(i in 2: maxite){ # SR: this is one solution, we lost opti epsilon as a parameter
-  #while (opti > epsilon  &&  counter < maxite){
+    #while (opti > epsilon  &&  counter < maxite){
     param_0 <- genRandomPar(profile=profile)
     if(datasimul){
       valSim <- rbind(valSim, fit_migramod(dataIn, parameters_0=param_0, model.rc = model.rc)$values)
-      opti <- valSim[[nrow(valSim),opti.pos]]
+      opti <- unlist(valSim[nrow(valSim),opti.pos])
       counter =counter + 1
       setTxtProgressBar(pb, counter)
 
     }else{
 
       valSim_b  <- fit_migramod(dataIn, parameters_0=param_0, model.rc)$values
-      opti <- valSim_b[[opti.pos]]
+      opti <- unlist(valSim_b[opti.pos])
       if(counter == 0){
         valSim <- valSim_b
 
       }else{ valSim <- valSim}
-      if(opti < valSim[[opti.pos]]){
+      if(opti < unlist(valSim[opti.pos])){
         valSim <- valSim_b
       }else {
         valSim <- valSim
@@ -186,12 +167,12 @@ best_migramod <- function(dataIn, model.rc, profile="eleven", maxite=100, epsilo
               ,bestOptimRes=bestOptimRes
               ,bestMAPE=bestMAPE
               ,bestRcuad=bestRcuad
-              ,dataSimul=dataSimul))
+              ,dataSimul=dataSimul
+              , modelClass = model.rc))
 
 
   #detach(dataIn)
 }
-
 
 
 
