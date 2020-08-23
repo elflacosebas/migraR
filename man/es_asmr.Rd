@@ -4,7 +4,8 @@
 \name{es_asmr}
 \alias{es_asmr}
 \title{Spanish age specific migration rate data}
-\format{A \code{data.frame} with 7 columns as follows:
+\format{
+A \code{data.frame} with 7 columns as follows:
 \describe{
   \item{Age}{Specific age group}
   \item{male.foreign}{Age specific out migration rates abroad Spain for male}
@@ -15,7 +16,8 @@
  \item{male.intra_province}{Age specific out migration rates abroad Spain for male}
  \item{female.intra_province}{Age specific out migration rates abroad Spain for female}
 
-}}
+}
+}
 \usage{
 es_asmr
 }

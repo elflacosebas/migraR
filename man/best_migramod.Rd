@@ -46,13 +46,13 @@ lines(data1[,1], fitted.val.11$modelClass$value(fitted.val.11$bestParam,data1), 
 lines(data1[,1], fitted.val.13$modelClass$value(fitted.val.13$bestParam,data1), col="green")
 legend('topright',
       legend = c(paste("(7)", "MAPE:", round(as.numeric(fitted.val.7$bestMAPE),2),
-                       "R²:", round(as.numeric(fitted.val.7$bestRcuad),3)),
+                       "RÂ²:", round(as.numeric(fitted.val.7$bestRcuad),3)),
                  paste("(9)", "MAPE:", round(as.numeric(fitted.val.9$bestMAPE),2),
-                       "R²:", round(as.numeric(fitted.val.9$bestRcuad),3)),
+                       "RÂ²:", round(as.numeric(fitted.val.9$bestRcuad),3)),
                  paste("(11)", "MAPE:", round(as.numeric(fitted.val.11$bestMAPE),2),
-                       "R²:", round(as.numeric(fitted.val.11$bestRcuad),3)),
+                       "RÂ²:", round(as.numeric(fitted.val.11$bestRcuad),3)),
                  paste("(13)", "MAPE:", round(as.numeric(fitted.val.13$bestMAPE),2),
-                       "R²:", round(as.numeric(fitted.val.13$bestRcuad),3))),
+                       "RÂ²:", round(as.numeric(fitted.val.13$bestRcuad),3))),
       col = c("red",'orange',"blue","darkgreen"), lty = c(2,6,3,5))
 }
 }
