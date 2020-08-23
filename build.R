@@ -18,8 +18,6 @@ data("es_asmr")
 data1 <- es_asmr[-c(1,2),c(1,6)]
 colnames(data1) <- c("x","y")
 
-
-
 fitted.val.7 <- best_migramod(dataIn = data1,
                               maxite = 10,
                               profile = "seven")

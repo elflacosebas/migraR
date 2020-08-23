@@ -74,10 +74,10 @@ The example was chosen selecting the migration data from Spainish Census 2011.
                  model.rc = model.rc.9, maxite = 200,
                  profile = "nine")
  fitted.val.11 <- best_migramod(dataIn = data1,
-                  model.rc = model.rc.11, maxite = 200,
+                  maxite = 200,
                   profile = "eleven")
  fitted.val.13 <- best_migramod(dataIn = data1,
-                  model.rc = model.rc.13, maxite = 200,
+                  maxite = 200,
                   profile = "thirteen")
 
  x11()

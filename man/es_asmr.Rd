@@ -9,6 +9,10 @@
   \item{Age}{Specific age group}
   \item{male.foreign}{Age specific out migration rates abroad Spain for male}
   \item{female.foreign}{Age specific out migration rates abroad Spain for female}
+  \item{male.inter_regional}{Age specific out migration rates abroad Spain for male}
+  \item{female.inter_regional}{Age specific out migration rates abroad Spain for female}
+  \item{male.intra_province}{Age specific out migration rates abroad Spain for male}
+  \item{female.intra_province}{Age specific out migration rates abroad Spain for female}
 }}
 \usage{
 es_asmr
