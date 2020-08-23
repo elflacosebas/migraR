@@ -62,6 +62,8 @@ The example was chosen selecting the migration data from Spainish Census 2011.
 
  library(migraR)
  library(dplyr)
+ library(tidyverse)
+ 
  data("es_asmr")
  data1 <- es_asmr[-c(1,2),c(1,6)]
  colnames(data1) <- c("x","y")
@@ -90,7 +92,66 @@ The example was chosen selecting the migration data from Spainish Census 2011.
                          "R²:", round(as.numeric(fitted.val.13$bestRcuad),3))),
                   col = c("red",'orange',"blue","darkgreen"), lty = c(2,6,3,5))
         
+        
+        
+        
+        
+# Example using ggplot
 
+expat.male <- ksmooth(es_asmr$age, es_asmr$male.foreign, 
+                          "normal", bandwidth = 5, x.points = es_asmr$age)
+expat.female <- ksmooth(es_asmr$age, es_asmr$female.foreign,
+                        "normal", bandwidth = 5, x.points = es_asmr$age)
+interegional.male <- ksmooth(es_asmr$age, es_asmr$male.inter_regional,
+                             "normal", bandwidth = 5, x.points = es_asmr$age)
+interegional.female <- ksmooth(es_asmr$age, es_asmr$female.inter_regional, 
+                               "normal", bandwidth = 5, x.points = es_asmr$age)
+intraprovince.male <- ksmooth(es_asmr$age, es_asmr$male.intra_province,
+                              "normal", bandwidth = 5, x.points = es_asmr$age)
+intraprovince.female <- ksmooth(es_asmr$age, es_asmr$female.intra_province,
+                                "normal", bandwidth = 5, x.points = es_asmr$age) 
+
+#you must create first the data.frame
+
+SpanishMig <- data.frame(Age= es_asmr$age, 
+                         Expat_female = expat.female$y, 
+                         Interegional_female = interegional.female$y, 
+                         Intraprovince_female = intraprovince.female$y)
+#then the pivot_longer
+rates.long <- SpanishMig %>% 
+  pivot_longer(cols = 2:4, names_to = 'Type', values_to = "Rates_Smoothed")
+
+#now ggplot
+ggplot(data = rates.long, mapping= aes(x= Age, y= Rates_Smoothed, colour= Type)) +
+  geom_line()
+
+######### Compare the smoothed curves of man and women of intra-province migration
+
+SpanishMig <- data.frame(Age= es_asmr$edad, 
+                         Intraprovince_male = intraprovince.male$y, 
+                         Intraprovince_female = intraprovince.female$y)
+#then the pivot_longer
+rates.long <- SpanishMig %>% 
+  pivot_longer(cols = 2:3, names_to = 'Type', values_to = "Rates_Smoothed")
+
+#now ggplot
+ggplot(data = rates.long, mapping= aes(x= Age, y= Rates_Smoothed, colour= Type)) +
+  geom_line()
+  
+  
+rates <- data.frame(Age = es_asmr$age, 
+                    Original = es_asmr$male.inter_regional, 
+                    Seven = model.rc.7$value(fitted.val.7$bestParam,data1), 
+                    Nine = model.rc.9$value(fitted.val.9$bestParam,data1), 
+                    Eleven = model.rc.11$value(fitted.val.11$bestParam,data1), 
+                    Thirteen = model.rc.13$value(fitted.val.13$bestParam,data1))
+                    
+rates.long <- rates %>% 
+  pivot_longer(cols = 2:6, names_to = 'Type', values_to = "Rates_OPTIM")
+
+ggplot(data = rates.long, mapping= aes(x= Age, y= Rates_OPTIM, colour= Type)) +
+  geom_line()
+  
 
 ```
 
