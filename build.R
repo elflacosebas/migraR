@@ -18,18 +18,10 @@ data("es_asmr")
 data1 <- es_asmr[-c(1,2),c(1,6)]
 colnames(data1) <- c("x","y")
 
-fitted.val.7 <- best_migramod(dataIn = data1,
-                              maxite = 10,
-                              profile = "seven")
-fitted.val.9 <- best_migramod(dataIn = data1,
-                              maxite = 10,
-                              profile = "nine")
-fitted.val.11 <- best_migramod(dataIn = data1,
-                               maxite = 10,
-                               profile = "eleven")
-fitted.val.13 <- best_migramod(dataIn = data1,
-                               maxite = 10,
-                               profile = "thirteen")
+fitted.val.7 <- best_migramod(dataIn = data1, maxite = 10, profile = "seven")
+fitted.val.9 <- best_migramod(dataIn = data1, maxite = 10, profile = "nine")
+fitted.val.11 <- best_migramod(dataIn = data1, maxite = 10, profile = "eleven")
+fitted.val.13 <- best_migramod(dataIn = data1, maxite = 10, profile = "thirteen")
 
 x11()
 plot(data1, cex=0.1, xlab = 'Age',
