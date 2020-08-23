@@ -21,7 +21,7 @@ The migraR functions were concived for estimate via linear optimization of the l
 
 http://demographicestimation.iussp.org/content/multi-exponential-model-migration-schedule
 
-Know it is included the parametrization of the Coale and McNeil nuptiality curve, taken advantage of the class consruction. 
+Now, it is included the parametrization of the Coale and McNeil nuptiality curve, taken advantage of the class consruction. You can use it setting the function parameter `profile = nuptial`
 
 Package under contiuous changes! place your bugs on the github tab issues :) :rocket:
 

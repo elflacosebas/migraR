@@ -14,9 +14,9 @@
 #' @examples
 #' \dontrun{
 #' param0 <- genRandomPar(profile='seven')
-#' model.rc = MigraModel(
-#'   name = 'castro_7',
-#'   expr = rc_expression(profile = "seven")
+#' name = 'Parametric_model',
+#' expr = rc_expression(profile = 'seven') ,
+#' dataIn = dataIn
 #' )
 #' fit_migramod(dataIn, param0, model.rc)
 #' }
