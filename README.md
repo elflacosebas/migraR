@@ -2,41 +2,41 @@
 #PACKAGE UNDER CHANGES, WORKABLE VERSION
 
 # migraR
-R package for migration analysis focused now on the Rogers and Castro multi exponential model and the estimation of the parameters using a bayesian simulation based on uniform a priori distributions for each parameter between 0 and 1, and 0 to 100 in the case of the location parameters corresponding to ages in the migration pattern. 
+R package for migration analysis focused now on the Rogers and Castro multi exponential model and the estimation of the parameters using a simulation based on uniform a priori distributions for each parameter between 0 and 1, and 0 to 100 in the case of the location parameters corresponding to ages in the migration pattern. 
 
 This package was created on GitHub by J. Sebastian Ruiz-Santacruz and Jackson Garcés between February and June 2018.
 Cite as: 
 
-Ruiz-Santacruz and Garcés, 2018. migraR. Prototype package for adjusting Rogers and Castro models. Retrieved: dd/mm/aa
+Ruiz-Santacruz and Garcés, 2018. migraR. Prototype package for adjusting Rogers and Castro models. Retrieved: dd/mm/yy
 
 **Description**
 
 The migraR package provides functions for estimate the parameters for Rogers and Castro Models: 
-rc.7, rc.9, rc.11, rc.13 are created in the example using the Migramodel class. You may create your own multiexponetial model making 
-profit of the fucntion migramodel.
+rc.7, rc.9, rc.11, rc.13 are created in the example using the Migramodel class. You may create your own multi-exponential model making 
+profit of the function migramodel.
 
 **migraR functions**
 
-The migraR functions were concived for estimate via linear optimization of the log(Migration Rate), the parameters of the Rogers and Castro models wit seven, eleven and thirteen parameters. Besides, the package gives the user the posibility to investigate wich curve fits better using the methodology provided in the IUSSP manual for the estimation of Rogers and Castro multi exponential model migration schedule with the same method for the optimization without constrains. 
+The migraR functions were conceived for estimate via linear optimization of the log(Migration Rate), the parameters of the Rogers and Castro models wit seven, eleven and thirteen parameters. Besides, the package gives the user the posibility to investigate wich curve fits better using the methodology provided in the IUSSP manual for the estimation of Rogers and Castro multi exponential model migration schedule with the same method for the optimization without constrains. 
 
 http://demographicestimation.iussp.org/content/multi-exponential-model-migration-schedule
 
-Now, it is included the parametrization of the Coale and McNeil nuptiality curve, taken advantage of the class consruction. You can use it setting the function parameter `profile = nuptial`
+Now, it is included the parametrization of the Coale and McNeil nuptiality curve, taken advantage of the class construction. You can use it setting the function parameter `profile = nuptial`
 
-Package under contiuous changes! place your bugs on the github tab issues :) :rocket:
+Package under continuous changes! place your bugs on the github tab issues :) :rocket:
 
 
 
 ## Getting Started
 
-The package should be downloaded using devtools::install_github("elflacosebas/migraR"). Migration rates from Spain were calculated using the census 2011. The fucntion best_migramod has the complete example. There are probably some bugs that we pledge you can report to us using issues in github. 
+The package should be downloaded using devtools::install_github("elflacosebas/migraR"). Migration rates from Spain were calculated using the census 2011. The function best_migramod has the complete example. There are probably some bugs that we pledge you can report to us using issues in github. 
 
 ### Application of the method 
 
 You can download the original working paper in Spanish please click here: 
 https://ddd.uab.cat/record/212615
 
-A traslation in English please go to: 
+English version please go to: 
 https://www.researchgate.net/publication/335928518_Estimation_of_migration_schedules_by_simulating_the_initial_values_in_the_parameter_optimizations_of_multi-exponential_migration_models_an_application_to_intra-Latin_American_international_migration
 
 
@@ -55,7 +55,7 @@ Call the packages with `library(dplyr)` and `library(devtools)` then type `insta
 
 ###Example
 
-The example was chosen selecting the migration data from Spainish Census 2011. 
+The example was chosen selecting the migration data from Spanish Census 2011. 
 
 ```
 # Calling packages and dataset.
@@ -76,7 +76,7 @@ The example was chosen selecting the migration data from Spainish Census 2011.
 
  x11()
  plot(data1, cex=0.1, xlab = 'Age',
-     ylab = 'Standarized Migration Rate')
+     ylab = 'Standardized Migration Rate')
  lines(data1[,1], fitted.val.7$modelClass$value(fitted.val.7$bestParam,data1), col="blue")
  lines(data1[,1], fitted.val.9$modelClass$value(fitted.val.9$bestParam,data1), col="orange")
  lines(data1[,1], fitted.val.11$modelClass$value(fitted.val.11$bestParam,data1), col="blue", lty=3)

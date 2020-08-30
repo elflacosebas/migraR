@@ -1,12 +1,12 @@
 Package: migraR
 Type: Package
 Title: Rogers and Castro Migration Models Schedule's Optimizer
-Version: 0.1.2
+Version: 0.1.3
 Author: J. Sebastian Ruiz-Santacruz [aut, cre], Jackson Garcés [aut, ctb]
 Maintainer: J. Sebastian Ruiz-Santacruz <sebastianruizsantacruz@gmail.com>
 Depends: R (>= 3.1.0)
 Imports: methods, dplyr, utils, stats
-Description: The migraR functions were concived for estimate via linear optimization of the log(Migration Rate), the parameters of the Rogers and Castro models wit seven, eleven and thirteen parameters. Besides, the package gives the user the posibility to investigate wich curve fits better using the methodology provided in the IUSSP manual for the estimation of Rogers and Castro multi exponential model migration schedule with the same method for the optimization without constrains.
+Description: The migraR functions were conceived for estimate via linear optimization of the log(Migration Rate), the parameters of the Rogers and Castro models wit seven, eleven and thirteen parameters. Besides, the package gives the user the possibility to investigate which curve fits better using the methodology provided in the IUSSP manual for the estimation of Rogers and Castro multi exponential model migration schedule with the same method for the optimization without constrains.
 License: GPL (>= 2)
 Encoding: UTF-8
 LazyData: true

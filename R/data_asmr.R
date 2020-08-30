@@ -1,6 +1,6 @@
 #' Spanish age specific migration rate data
 #'
-#' @description Internal and International migration rates by sigle age and sex for Spain.
+#' @description Internal and International migration rates by single age and sex for Spain.
 #' Rates calculated with using the data (migrants and population) form the Spanish Statistical Institute (INE).
 #'
 #'@docType data

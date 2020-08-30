@@ -4,7 +4,7 @@
 #' @param parameters_0 Set of initial parameters for selected Rogers and Castro model equation.
 #' @param model.rc Object of class migramod with usually a Rogers and Castro model expression.
 #' @usage fit_migramod (dataIn, parameters_0, model.rc)
-#' @return A list of values caluculated in the minimization as OptimResult, R squared or MAPE.
+#' @return A list of values calculated in the minimization as OptimResult, R squared or MAPE.
 #' @importFrom stats nlminb
 #' @importFrom utils data
 #' @importFrom utils globalVariables

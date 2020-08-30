@@ -1,9 +1,9 @@
 #'Select best migramod model.
 #'
-#'One solution to initial values problem based on the generaton of a random sample with size equals one from uniform apriori
+#'One solution to initial values problem based on the generation of a random sample with size equals one from uniform a priori
 #'distributions with values between 0 and 1 for the initial parameters.
 #'
-#'@param dataIn Standarized migration data set for optimization.
+#'@param dataIn Standardized migration data set for optimization.
 #'@param profile Number of parameters of a Roger and Castro model.
 #'@param maxite Maximum number of iterations for model optimization.
 #'@param epsilon Tolerance in which the difference between the Mean Squared Error that will finish the algorithm.

@@ -14,7 +14,7 @@ fit_migramod (dataIn, parameters_0, model.rc)
 \item{model.rc}{Object of class migramod with usually a Rogers and Castro model expression.}
 }
 \value{
-A list of values caluculated in the minimization as OptimResult, R squared or MAPE.
+A list of values calculated in the minimization as OptimResult, R squared or MAPE.
 }
 \description{
 Estimate a migramod model via linear optimization

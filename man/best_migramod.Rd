@@ -8,7 +8,7 @@ best_migramod(dataIn, profile = "eleven",
       maxite = 100, epsilon = 1e-05, datasimul = TRUE)
 }
 \arguments{
-\item{dataIn}{Standarized migration data set for optimization.}
+\item{dataIn}{Standardized migration data set for optimization.}
 
 \item{profile}{Number of parameters of a Roger and Castro model.}
 
@@ -22,7 +22,7 @@ best_migramod(dataIn, profile = "eleven",
 a list with named parameters
 }
 \description{
-One solution to initial values problem based on the generaton of a random sample with size equals one from uniform apriori
+One solution to initial values problem based on the generation of a random sample with size equals one from uniform a priori
 distributions with values between 0 and 1 for the initial parameters.
 }
 \examples{
@@ -46,13 +46,13 @@ lines(data1[,1], fitted.val.11$modelClass$value(fitted.val.11$bestParam,data1), 
 lines(data1[,1], fitted.val.13$modelClass$value(fitted.val.13$bestParam,data1), col="green")
 legend('topright',
       legend = c(paste("(7)", "MAPE:", round(as.numeric(fitted.val.7$bestMAPE),2),
-                       "RÂ²:", round(as.numeric(fitted.val.7$bestRcuad),3)),
+                       "R²:", round(as.numeric(fitted.val.7$bestRcuad),3)),
                  paste("(9)", "MAPE:", round(as.numeric(fitted.val.9$bestMAPE),2),
-                       "RÂ²:", round(as.numeric(fitted.val.9$bestRcuad),3)),
+                       "R²:", round(as.numeric(fitted.val.9$bestRcuad),3)),
                  paste("(11)", "MAPE:", round(as.numeric(fitted.val.11$bestMAPE),2),
-                       "RÂ²:", round(as.numeric(fitted.val.11$bestRcuad),3)),
+                       "R²:", round(as.numeric(fitted.val.11$bestRcuad),3)),
                  paste("(13)", "MAPE:", round(as.numeric(fitted.val.13$bestMAPE),2),
-                       "RÂ²:", round(as.numeric(fitted.val.13$bestRcuad),3))),
+                       "R²:", round(as.numeric(fitted.val.13$bestRcuad),3))),
       col = c("red",'orange',"blue","darkgreen"), lty = c(2,6,3,5))
 }
 }

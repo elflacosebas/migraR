@@ -22,7 +22,7 @@ A \code{data.frame} with 7 columns as follows:
 es_asmr
 }
 \description{
-Internal and International migration rates by sigle age and sex for Spain.
+Internal and International migration rates by single age and sex for Spain.
 Rates calculated with using the data (migrants and population) form the Spanish Statistical Institute (INE).
 }
 \keyword{Internal}

@@ -7,9 +7,10 @@ library(testthat)
 
 document()
 build()
+
 check()
 #gp()
-#spell_check()
+spell_check()
 #?build_website()
 
 library(migraR)
