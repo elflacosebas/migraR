@@ -1,5 +1,5 @@
 
-#PACKAGE UNDER CHANGES, WORKABLE VERSION
+# PACKAGE UNDER CHANGES, WORKABLE VERSION
 
 # migraR
 R package for migration analysis focused now on the Rogers and Castro multi exponential model and the estimation of the parameters using a simulation based on uniform a priori distributions for each parameter between 0 and 1, and 0 to 100 in the case of the location parameters corresponding to ages in the migration pattern. 
@@ -91,39 +91,6 @@ The example was chosen selecting the migration data from Spanish Census 2011.
                    paste("(13)", "MAPE:", round(as.numeric(fitted.val.13$bestMAPE),2),
                          "R²:", round(as.numeric(fitted.val.13$bestRcuad),3))),
                   col = c("red",'orange',"blue","darkgreen"), lty = c(2,6,3,5))
-        
-        
-        
-############## Example using ggplot
-
-expat.male <- ksmooth(es_asmr$age, es_asmr$male.foreign, 
-                          "normal", bandwidth = 5, x.points = es_asmr$age)
-expat.female <- ksmooth(es_asmr$age, es_asmr$female.foreign,
-                        "normal", bandwidth = 5, x.points = es_asmr$age)
-interegional.male <- ksmooth(es_asmr$age, es_asmr$male.inter_regional,
-                             "normal", bandwidth = 5, x.points = es_asmr$age)
-interegional.female <- ksmooth(es_asmr$age, es_asmr$female.inter_regional, 
-                               "normal", bandwidth = 5, x.points = es_asmr$age)
-intraprovince.male <- ksmooth(es_asmr$age, es_asmr$male.intra_province,
-                              "normal", bandwidth = 5, x.points = es_asmr$age)
-intraprovince.female <- ksmooth(es_asmr$age, es_asmr$female.intra_province,
-                                "normal", bandwidth = 5, x.points = es_asmr$age) 
-
-#you must create first the data.frame
-
-SpanishMig <- data.frame(Age= es_asmr$age, 
-                         Expat_female = expat.female$y, 
-                         Interegional_female = interegional.female$y, 
-                         Intraprovince_female = intraprovince.female$y)
-#then the pivot_longer
-rates.long <- SpanishMig %>% 
-  pivot_longer(cols = 2:4, names_to = 'Type', values_to = "Rates_Smoothed")
-
-#now ggplot
-ggplot(data = rates.long, mapping= aes(x= Age, y= Rates_Smoothed, colour= Type)) +
-  geom_line()
-
- 
 
 ```
 
