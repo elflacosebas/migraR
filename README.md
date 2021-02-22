@@ -30,15 +30,6 @@ Package under continuous changes! place your bugs on the github tab issues :) :r
 
 The package should be downloaded using devtools::install_github("elflacosebas/migraR"). Migration rates from Spain were calculated using the census 2011. The function best_migramod has the complete example. There are probably some bugs that we pledge you can report to us using issues in github. 
 
-### Application of the method 
-
-You can download the original working paper in Spanish please click here: 
-https://ddd.uab.cat/record/212615
-
-English version please go to: 
-https://www.researchgate.net/publication/335928518_Estimation_of_migration_schedules_by_simulating_the_initial_values_in_the_parameter_optimizations_of_multi-exponential_migration_models_an_application_to_intra-Latin_American_international_migration
-
-
 ### Prerequisites
 
 What things you need to install the software and how to install them
